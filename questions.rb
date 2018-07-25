@@ -1,43 +1,64 @@
-# Given five positive integers, find the minimum and maximum
-# values that can be calculated by summing exactly four of the five
-#  integers.
-# a=[1, 2, 6, 4, 5]
-a = [5, 5, 5, 5, 5]
-def miniMaxSum(arr)
-  min = 0
+a = [3, 2, 1, 3]
+def birthdayCakeCandles(ar)
   max = 0
-  for i in 0..arr.length-1
-    temparr = arr[0..arr.length-1]
-    # return temparr
-    # return i
-    # temparr =
-    # temparr.delete(i)
-    # if i === 3
-      # return temparr
-      # temparr.delete(temparr[i])
-      # return temparr
-    # end
-    # temparr.delete(temparr[i]) #this does not work if a value is dupe
-    temparr.delete_at(i)
-    sum = 0
-    temparr.each {|x| sum +=x}
-    if i === 0
-      max = sum
-      min = sum
-    end
+  maxcount = 0
+  ar.each do |x|
+    if x === max
+      maxcount+=1
+    elsif x > max
+      max = x
+      maxcount = 1
+    end #if
 
-    if sum > max
-      max = sum
-    end
-    if sum < min
-      min = sum
-    end
-  end #for
-  return [min, max]
-  # return "test"
+  end
+  # eturn the number of candles she can successfully blow out
+  # "test"
+  return maxcount
 end
 
-puts "#{miniMaxSum(a)}"
+puts birthdayCakeCandles a
+
+
+# # Given five positive integers, find the minimum and maximum
+# # values that can be calculated by summing exactly four of the five
+# #  integers.
+# # a=[1, 2, 6, 4, 5]
+# a = [5, 5, 5, 5, 5]
+# def miniMaxSum(arr)
+#   min = 0
+#   max = 0
+#   for i in 0..arr.length-1
+#     temparr = arr[0..arr.length-1]
+#     # return temparr
+#     # return i
+#     # temparr =
+#     # temparr.delete(i)
+#     # if i === 3
+#       # return temparr
+#       # temparr.delete(temparr[i])
+#       # return temparr
+#     # end
+#     # temparr.delete(temparr[i]) #this does not work if a value is dupe
+#     temparr.delete_at(i)
+#     sum = 0
+#     temparr.each {|x| sum +=x}
+#     if i === 0
+#       max = sum
+#       min = sum
+#     end
+#
+#     if sum > max
+#       max = sum
+#     end
+#     if sum < min
+#       min = sum
+#     end
+#   end #for
+#   return [min, max]
+#   # return "test"
+# end
+#
+# puts "#{miniMaxSum(a)}"
 
 
 # def staircase(n)
