@@ -1,24 +1,66 @@
-def staircase(n)
-  count = 0
-  limit = n
-  spaces = n-1
-  pound = 1
-  while count < limit
-    output = ""
-    for i in 0...spaces
-      output+=" "
-    end #spaces
-    for i in 0...pound
-      output += "#"
-    end #pound
-    count +=1
-    spaces -=1
-    pound +=1
-    puts output
-  end #while
+# Given five positive integers, find the minimum and maximum
+# values that can be calculated by summing exactly four of the five
+#  integers.
+# a=[1, 2, 6, 4, 5]
+a = [5, 5, 5, 5, 5]
+def miniMaxSum(arr)
+  min = 0
+  max = 0
+  for i in 0..arr.length-1
+    temparr = arr[0..arr.length-1]
+    # return temparr
+    # return i
+    # temparr =
+    # temparr.delete(i)
+    # if i === 3
+      # return temparr
+      # temparr.delete(temparr[i])
+      # return temparr
+    # end
+    # temparr.delete(temparr[i]) #this does not work if a value is dupe
+    temparr.delete_at(i)
+    sum = 0
+    temparr.each {|x| sum +=x}
+    if i === 0
+      max = sum
+      min = sum
+    end
+
+    if sum > max
+      max = sum
+    end
+    if sum < min
+      min = sum
+    end
+  end #for
+  return [min, max]
+  # return "test"
 end
 
-staircase 6
+puts "#{miniMaxSum(a)}"
+
+
+# def staircase(n)
+#   count = 0
+#   limit = n
+#   spaces = n-1
+#   pound = 1
+#   while count < limit
+#     output = ""
+#     for i in 0...spaces
+#       output+=" "
+#     end #spaces
+#     for i in 0...pound
+#       output += "#"
+#     end #pound
+#     count +=1
+#     spaces -=1
+#     pound +=1
+#     puts output
+#   end #while
+# end
+#
+# staircase 6
 
 
 # `a = [-4, 3, -9, 0, 4, 1]
