@@ -1,41 +1,66 @@
-def kangaroo(x1, v1, x2, v2)
-  same = "NO"
+x =  [73, 67, 38, 33]
 
-  while x1 <=100000000 && x2 <= 100000000
-    x1 +=v1
-    x2 +=v2
-    if x1 === x2
-      same = "YES"
-      # puts "#{x1} #{x2}"
-    end
-
+def gradingStudents(grades)
+  # "hi"
+  length = grades.length
+  for i in 0...length
+    # puts i
+    if grades[i] >= 38
+      remainder = grades[i] % 5
+      # puts remainder
+      if remainder === 3
+        grades[i] = grades[i]+2
+      elsif remainder === 4
+        grades[i] = grades[i]+1
+      end #remainder if
+    else
+      # puts grades[i]
+    end #if
   end
-  same
-  # puts "k1: #{k1_location} k2:#{k2_location}"
-  ####WORKS FOR 4 times
-  k1_location = x1
-  k2_location  = x2
-
-  4.times do
-    # puts "hello"
-    k1_location += v1
-    k2_location += v2
-    # puts "k1: #{k1_location} k2:#{k2_location}"
-  end
-
-  same = "NO"
-  if k1_location === k2_location
-    same = "YES"
-  end
-  puts same
-
+  grades
 end
 
-puts kangaroo(0,3,4,2)
-puts kangaroo(0,2,5,3)
-puts kangaroo(4523, 8092, 9419, 8076)
-puts kangaroo(2081, 8403, 9107, 8400)
+puts gradingStudents(x)
 
+
+# def kangaroo(x1, v1, x2, v2)
+#   same = "NO"
+#
+#   while x1 <=100000000 && x2 <= 100000000
+#     x1 +=v1
+#     x2 +=v2
+#     if x1 === x2
+#       same = "YES"
+#       # puts "#{x1} #{x2}"
+#     end
+#
+#   end
+#   same
+#   # puts "k1: #{k1_location} k2:#{k2_location}"
+#   ####WORKS FOR 4 times
+#   k1_location = x1
+#   k2_location  = x2
+#
+#   4.times do
+#     # puts "hello"
+#     k1_location += v1
+#     k2_location += v2
+#     # puts "k1: #{k1_location} k2:#{k2_location}"
+#   end
+#
+#   same = "NO"
+#   if k1_location === k2_location
+#     same = "YES"
+#   end
+#   puts same
+#
+# end
+#
+# puts kangaroo(0,3,4,2)
+# puts kangaroo(0,2,5,3)
+# puts kangaroo(4523, 8092, 9419, 8076)
+# puts kangaroo(2081, 8403, 9107, 8400)
+#
 
 # # s t 7 11
 # # a b 5 15
