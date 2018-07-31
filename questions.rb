@@ -1,44 +1,93 @@
+# s t 7 11
+# a b 5 15
+# m n 3 2
+# m space-separated integers denoting the respective distances
+#   that each apple falls from point a
+# -2 2 1
+# n space-separated integers denoting the respective distances
+#   that each orange falls from point b
+# 5 -6
+# s  Starting point of Sam's house location.
+# t  Ending location of Sam's house location.
+# a  Location of the Apple tree.
+# b  Location of the Orange tree.
+# m  Number of apples that fell from the tree.
+# apples  Distance at which each apple falls from the tree.
+# n  Number of oranges that fell from the tree.
+# oranges  Distance at which each orange falls from the tree.
 
-# s = "07:05:45PM"
-# s = "12:05:45AM"
-# s = "01:33:33AM"
-# s = "01:33:33pm"
-# s = "12:33:33pm"
-# s = "12:33:33am"
-# s = "11:33:33am"
-s = "11:33:33pm"
-# s = "01:00:00am"
-def timeConversion(s)
-    #
-    # Write your code here.
-    #
-    split_time = s.split(":")
-    hour = split_time[0]
-    minute = split_time[1]
-    second = split_time[2][0] + split_time[2][1]
-    # second = second.join("")
-    daynight = split_time[2][2] + split_time[2][3]
 
-    if daynight === "PM" || daynight ==="pm"
-      if hour === "12"
-        hour = 12
-      else
-        hour = hour.to_i
-        hour += 12
-        # hour = hour
-      end
-    elsif daynight === "AM" || daynight === "am"
-      if hour === "12"
-        hour = "00"
-      end
+# output
+#
+# The first integer: the number of apples that fall on Sam's house.
+# The second integer: the number of oranges that fall on Sam's house.
+def countApplesAndOranges(s, t, a, b, apples, oranges)
+  # puts "a b :#{[a,b]}"
+  apples_sams_house = 0
+  oranges_sams_house = 0
+  apples.each do |apple|
+    # puts "aplusapple: #{a+apple}"
+    if a+apple >= s && a+apple <= t
+      apples_sams_house +=1
     end
-    # hour = hour.to_s
-    # news
-    # [hour, minute, second, daynight]
-    hour = hour.to_s
-    return "#{hour}:#{minute}:#{second}"
+  end #apples each
+  oranges.each do |orange|
+    # puts "bplusorange: #{b+orange}"
+    if b+orange >= s && b+orange <= t
+      oranges_sams_house +=1
+    end
+  end #apples each
+  puts apples_sams_house
+  puts oranges_sams_house
+  # "end"
 end
-puts "#{timeConversion s}"
+
+puts countApplesAndOranges(7, 11, 5, 15, [-2,2,1],[5, -6])
+
+
+
+
+#
+# # s = "07:05:45PM"
+# # s = "12:05:45AM"
+# # s = "01:33:33AM"
+# # s = "01:33:33pm"
+# # s = "12:33:33pm"
+# # s = "12:33:33am"
+# # s = "11:33:33am"
+# s = "11:33:33pm"
+# # s = "01:00:00am"
+# def timeConversion(s)
+#     #
+#     # Write your code here.
+#     #
+#     split_time = s.split(":")
+#     hour = split_time[0]
+#     minute = split_time[1]
+#     second = split_time[2][0] + split_time[2][1]
+#     # second = second.join("")
+#     daynight = split_time[2][2] + split_time[2][3]
+#
+#     if daynight === "PM" || daynight ==="pm"
+#       if hour === "12"
+#         hour = 12
+#       else
+#         hour = hour.to_i
+#         hour += 12
+#         # hour = hour
+#       end
+#     elsif daynight === "AM" || daynight === "am"
+#       if hour === "12"
+#         hour = "00"
+#       end
+#     end
+#     # hour = hour.to_s
+#     # news
+#     # [hour, minute, second, daynight]
+#     hour = hour.to_s
+#     return "#{hour}:#{minute}:#{second}"
+# end
+# puts "#{timeConversion s}"
 
 
 # a = [3, 2, 1, 3]
