@@ -1,50 +1,89 @@
-# s t 7 11
-# a b 5 15
-# m n 3 2
-# m space-separated integers denoting the respective distances
-#   that each apple falls from point a
-# -2 2 1
-# n space-separated integers denoting the respective distances
-#   that each orange falls from point b
-# 5 -6
-# s  Starting point of Sam's house location.
-# t  Ending location of Sam's house location.
-# a  Location of the Apple tree.
-# b  Location of the Orange tree.
-# m  Number of apples that fell from the tree.
-# apples  Distance at which each apple falls from the tree.
-# n  Number of oranges that fell from the tree.
-# oranges  Distance at which each orange falls from the tree.
+def kangaroo(x1, v1, x2, v2)
+  same = "NO"
 
+  while x1 <=100000000 && x2 <= 100000000
+    x1 +=v1
+    x2 +=v2
+    if x1 === x2
+      same = "YES"
+      # puts "#{x1} #{x2}"
+    end
 
-# output
-#
-# The first integer: the number of apples that fall on Sam's house.
-# The second integer: the number of oranges that fall on Sam's house.
-def countApplesAndOranges(s, t, a, b, apples, oranges)
-  # puts "a b :#{[a,b]}"
-  apples_sams_house = 0
-  oranges_sams_house = 0
-  apples.each do |apple|
-    # puts "aplusapple: #{a+apple}"
-    if a+apple >= s && a+apple <= t
-      apples_sams_house +=1
-    end
-  end #apples each
-  oranges.each do |orange|
-    # puts "bplusorange: #{b+orange}"
-    if b+orange >= s && b+orange <= t
-      oranges_sams_house +=1
-    end
-  end #apples each
-  puts apples_sams_house
-  puts oranges_sams_house
-  # "end"
+  end
+  same
+  # puts "k1: #{k1_location} k2:#{k2_location}"
+  ####WORKS FOR 4 times
+  k1_location = x1
+  k2_location  = x2
+
+  4.times do
+    # puts "hello"
+    k1_location += v1
+    k2_location += v2
+    # puts "k1: #{k1_location} k2:#{k2_location}"
+  end
+
+  same = "NO"
+  if k1_location === k2_location
+    same = "YES"
+  end
+  puts same
+
 end
 
-puts countApplesAndOranges(7, 11, 5, 15, [-2,2,1],[5, -6])
+puts kangaroo(0,3,4,2)
+puts kangaroo(0,2,5,3)
+puts kangaroo(4523, 8092, 9419, 8076)
+puts kangaroo(2081, 8403, 9107, 8400)
 
 
+# # s t 7 11
+# # a b 5 15
+# # m n 3 2
+# # m space-separated integers denoting the respective distances
+# #   that each apple falls from point a
+# # -2 2 1
+# # n space-separated integers denoting the respective distances
+# #   that each orange falls from point b
+# # 5 -6
+# # s  Starting point of Sam's house location.
+# # t  Ending location of Sam's house location.
+# # a  Location of the Apple tree.
+# # b  Location of the Orange tree.
+# # m  Number of apples that fell from the tree.
+# # apples  Distance at which each apple falls from the tree.
+# # n  Number of oranges that fell from the tree.
+# # oranges  Distance at which each orange falls from the tree.
+#
+#
+# # output
+# #
+# # The first integer: the number of apples that fall on Sam's house.
+# # The second integer: the number of oranges that fall on Sam's house.
+# def countApplesAndOranges(s, t, a, b, apples, oranges)
+#   # puts "a b :#{[a,b]}"
+#   apples_sams_house = 0
+#   oranges_sams_house = 0
+#   apples.each do |apple|
+#     # puts "aplusapple: #{a+apple}"
+#     if a+apple >= s && a+apple <= t
+#       apples_sams_house +=1
+#     end
+#   end #apples each
+#   oranges.each do |orange|
+#     # puts "bplusorange: #{b+orange}"
+#     if b+orange >= s && b+orange <= t
+#       oranges_sams_house +=1
+#     end
+#   end #apples each
+#   puts apples_sams_house
+#   puts oranges_sams_house
+#   # "end"
+# end
+#
+# puts countApplesAndOranges(7, 11, 5, 15, [-2,2,1],[5, -6])
+#
+#
 
 
 #
