@@ -1,24 +1,67 @@
-a = [3, 2, 1, 3]
-def birthdayCakeCandles(ar)
-  max = 0
-  maxcount = 0
-  ar.each do |x|
-    if x === max
-      maxcount+=1
-    elsif x > max
-      max = x
-      maxcount = 1
-    end #if
 
-  end
-  # eturn the number of candles she can successfully blow out
-  # "test"
-  return maxcount
+# s = "07:05:45PM"
+# s = "12:05:45AM"
+# s = "01:33:33AM"
+# s = "01:33:33pm"
+# s = "12:33:33pm"
+# s = "12:33:33am"
+# s = "11:33:33am"
+s = "11:33:33pm"
+# s = "01:00:00am"
+def timeConversion(s)
+    #
+    # Write your code here.
+    #
+    split_time = s.split(":")
+    hour = split_time[0]
+    minute = split_time[1]
+    second = split_time[2][0] + split_time[2][1]
+    # second = second.join("")
+    daynight = split_time[2][2] + split_time[2][3]
+
+    if daynight === "PM" || daynight ==="pm"
+      if hour === "12"
+        hour = 12
+      else
+        hour = hour.to_i
+        hour += 12
+        # hour = hour
+      end
+    elsif daynight === "AM" || daynight === "am"
+      if hour === "12"
+        hour = "00"
+      end
+    end
+    # hour = hour.to_s
+    # news
+    # [hour, minute, second, daynight]
+    hour = hour.to_s
+    return "#{hour}:#{minute}:#{second}"
 end
+puts "#{timeConversion s}"
 
-puts birthdayCakeCandles a
 
-
+# a = [3, 2, 1, 3]
+# def birthdayCakeCandles(ar)
+#   max = 0
+#   maxcount = 0
+#   ar.each do |x|
+#     if x === max
+#       maxcount+=1
+#     elsif x > max
+#       max = x
+#       maxcount = 1
+#     end #if
+#
+#   end
+#   # eturn the number of candles she can successfully blow out
+#   # "test"
+#   return maxcount
+# end
+#
+# puts birthdayCakeCandles a
+#
+#
 # # Given five positive integers, find the minimum and maximum
 # # values that can be calculated by summing exactly four of the five
 # #  integers.
