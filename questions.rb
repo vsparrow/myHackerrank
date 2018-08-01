@@ -1,68 +1,103 @@
-# The elements of the first array are all factors of the integer being considered
-# The integer being considered is a factor of all elements of the second array
-a = [2, 4]
-b = [16, 32, 96]
-# a = [2]
-# b = [20, 30, 12]
-# a = [3,9,6]
-# b = [36, 72]
-# These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.
+# Complete the breakingRecords function in the editor below. It must return an integer array containing the numbers of times she broke her records. Index
 
-def getTotalX(a, b)
-  largest_of_a = a.max
-  smallest_of_b = b.min
-  count = largest_of_a
-  possible = []
-  # puts "largest_of_a is #{largest_of_a}"
-  # puts "smallest_of_b is #{smallest_of_b}"
-  while(count <= smallest_of_b)
-    # puts "count is #{count}"
-    if count % largest_of_a === 0
-      # puts " #{count} #{count % largest_of_a}"
-      # puts "got ot outter if"
-      if smallest_of_b % count === 0
-        # puts " #{count} #{count % smallest_of_b}"
-        # puts "got to inner if "
-        possible << count
-      end
-    end
-    count+=1
-  end
-  # puts "#{possible}"
-  is_not_factorial_of_all_b = []
-  possible.each do |p_item|
-    b.each do |b_item|
-      if b_item % p_item > 0
-        is_not_factorial_of_all_b << p_item
-      end #if
-    end
-  end
-  is_not_factorial_of_all_b = is_not_factorial_of_all_b.uniq
-  # puts "is_not_factorial_of_all_b : #{is_not_factorial_of_all_b}"
-  is_not_factorial_of_all_b.each do |not_factorial|
-    possible.delete(not_factorial)
-  end
+array = [10, 5, 20, 20, 4, 5, 2, 25, 1]
+def breakingRecords(scores)
+  high = 0
+  low = 0
+   # scores
+  highcounter = 0
+  lowcounter = 0
 
-  doesnt_have_a_as_a_factor = []
-  # doesnt_have_a_as_a_factor
-  a.each do |a_item|
-    possible.each do |p_item|
-      if p_item % a_item > 0
-        doesnt_have_a_as_a_factor << p_item
-      end
-    end
-  end
+   scores.each_with_index do |score,i|
+     # if score
+     if i === 0
+       # puts "first elements"
+       high = score
+       low = score
+     else
+       if score > high
+         high = score
+         highcounter+=1
+       elsif score < low
+         low = score
+         lowcounter +=1
+       end
 
-  doesnt_have_a_as_a_factor.each  { |d| possible.delete(d)}
-
-  puts "#{possible}"
-  possible.size
+     end
+     # puts "score is #{score}, i is #{i}"
+   end
+   # [lowcounter, highcounter]
+   [highcounter,lowcounter]
 end
 
-getTotalX(a,b)
+puts "#{breakingRecords(array)} is return"
 
 
-# x =  [73, 67, 38, 33]
+# # The elements of the first array are all factors of the integer being considered
+# # The integer being considered is a factor of all elements of the second array
+# a = [2, 4]
+# b = [16, 32, 96]
+# # a = [2]
+# # b = [20, 30, 12]
+# # a = [3,9,6]
+# # b = [36, 72]
+# # These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.
+#
+# def getTotalX(a, b)
+#   largest_of_a = a.max
+#   smallest_of_b = b.min
+#   count = largest_of_a
+#   possible = []
+#   # puts "largest_of_a is #{largest_of_a}"
+#   # puts "smallest_of_b is #{smallest_of_b}"
+#   while(count <= smallest_of_b)
+#     # puts "count is #{count}"
+#     if count % largest_of_a === 0
+#       # puts " #{count} #{count % largest_of_a}"
+#       # puts "got ot outter if"
+#       if smallest_of_b % count === 0
+#         # puts " #{count} #{count % smallest_of_b}"
+#         # puts "got to inner if "
+#         possible << count
+#       end
+#     end
+#     count+=1
+#   end
+#   # puts "#{possible}"
+#   is_not_factorial_of_all_b = []
+#   possible.each do |p_item|
+#     b.each do |b_item|
+#       if b_item % p_item > 0
+#         is_not_factorial_of_all_b << p_item
+#       end #if
+#     end
+#   end
+#   is_not_factorial_of_all_b = is_not_factorial_of_all_b.uniq
+#   # puts "is_not_factorial_of_all_b : #{is_not_factorial_of_all_b}"
+#   is_not_factorial_of_all_b.each do |not_factorial|
+#     possible.delete(not_factorial)
+#   end
+#
+#   doesnt_have_a_as_a_factor = []
+#   # doesnt_have_a_as_a_factor
+#   a.each do |a_item|
+#     possible.each do |p_item|
+#       if p_item % a_item > 0
+#         doesnt_have_a_as_a_factor << p_item
+#       end
+#     end
+#   end
+#
+#   doesnt_have_a_as_a_factor.each  { |d| possible.delete(d)}
+#
+#   puts "#{possible}"
+#   possible.size
+# end
+#
+# getTotalX(a,b)
+#
+#
+# # x =  [73, 67, 38, 33]
 #
 # def gradingStudents(grades)
 #   # "hi"
