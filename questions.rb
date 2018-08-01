@@ -1,26 +1,90 @@
-x =  [73, 67, 38, 33]
+# The elements of the first array are all factors of the integer being considered
+# The integer being considered is a factor of all elements of the second array
+a = [2, 4]
+b = [16, 32, 96]
+# a = [2]
+# b = [20, 30, 12]
+# a = [3,9,6]
+# b = [36, 72]
+# These numbers are referred to as being between the two arrays. You must determine how many such numbers exist.
 
-def gradingStudents(grades)
-  # "hi"
-  length = grades.length
-  for i in 0...length
-    # puts i
-    if grades[i] >= 38
-      remainder = grades[i] % 5
-      # puts remainder
-      if remainder === 3
-        grades[i] = grades[i]+2
-      elsif remainder === 4
-        grades[i] = grades[i]+1
-      end #remainder if
-    else
-      # puts grades[i]
-    end #if
+def getTotalX(a, b)
+  largest_of_a = a.max
+  smallest_of_b = b.min
+  count = largest_of_a
+  possible = []
+  # puts "largest_of_a is #{largest_of_a}"
+  # puts "smallest_of_b is #{smallest_of_b}"
+  while(count <= smallest_of_b)
+    # puts "count is #{count}"
+    if count % largest_of_a === 0
+      # puts " #{count} #{count % largest_of_a}"
+      # puts "got ot outter if"
+      if smallest_of_b % count === 0
+        # puts " #{count} #{count % smallest_of_b}"
+        # puts "got to inner if "
+        possible << count
+      end
+    end
+    count+=1
   end
-  grades
+  # puts "#{possible}"
+  is_not_factorial_of_all_b = []
+  possible.each do |p_item|
+    b.each do |b_item|
+      if b_item % p_item > 0
+        is_not_factorial_of_all_b << p_item
+      end #if
+    end
+  end
+  is_not_factorial_of_all_b = is_not_factorial_of_all_b.uniq
+  # puts "is_not_factorial_of_all_b : #{is_not_factorial_of_all_b}"
+  is_not_factorial_of_all_b.each do |not_factorial|
+    possible.delete(not_factorial)
+  end
+
+  doesnt_have_a_as_a_factor = []
+  # doesnt_have_a_as_a_factor
+  a.each do |a_item|
+    possible.each do |p_item|
+      if p_item % a_item > 0
+        doesnt_have_a_as_a_factor << p_item
+      end
+    end
+  end
+
+  doesnt_have_a_as_a_factor.each  { |d| possible.delete(d)}
+
+  puts "#{possible}"
+  possible.size
 end
 
-puts gradingStudents(x)
+getTotalX(a,b)
+
+
+# x =  [73, 67, 38, 33]
+#
+# def gradingStudents(grades)
+#   # "hi"
+#   length = grades.length
+#   for i in 0...length
+#     # puts i
+#     if grades[i] >= 38
+#       remainder = grades[i] % 5
+#       # puts remainder
+#       if remainder === 3
+#         grades[i] = grades[i]+2
+#       elsif remainder === 4
+#         grades[i] = grades[i]+1
+#       end #remainder if
+#     else
+#       # puts grades[i]
+#     end #if
+#   end
+#   grades
+# end
+#
+# puts gradingStudents(x)
 
 
 # def kangaroo(x1, v1, x2, v2)
