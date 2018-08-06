@@ -1,34 +1,58 @@
-n = 6
-k = 3
-ar = [1, 3, 2, 6, 1, 2]
-
-def divisibleSumPairs(n, k, ar)
-  # "test"
-  #n is just array.size
-  #k is the number to mod with
-  # num1 < num2
-  count_of_pairs = 0
-  array_size = ar.size
-  counter = 0
-  while counter < array_size
-    i = ar[0]
-    ar.shift
-    ar.each do |element|
-      # puts "#{i} and #{element}"
-      # if i < element
-        # puts "#{i} + #{element} % #{k} = #{(i+element) % k}"
-        if (i+element) % k === 0
-          count_of_pairs +=1
-        end
-      # end #if
+def migratoryBirds(ar)
+  # "hi"
+  # limit: 1,2,3,4,5 are the only types
+  counting_ar = Array.new(5)
+  counting_ar.each_with_index {|e,index| counting_ar[index]= 0}
+  # counting_ar.size #5
+  # counting_ar[0] #nil
+  ar.each do |element|
+    counting_ar[element-1] += 1
+  end
+  most_common_bird = 1 #default
+  most_common_bird_count = counting_ar[0]
+  counting_ar.each_with_index do |element,index|
+    if element > most_common_bird_count
+      most_common_bird = index+1 #its plus 1 because 1-5 not 0-4
     end
-    counter +=1
-  end #while
-  count_of_pairs
+  end
+  # counting_ar
+  most_common_bird
 end
 
-puts divisibleSumPairs(n,k,ar)
+puts migratoryBirds([1, 4, 4, 4, 5, 3])
 
+
+# n = 6
+# k = 3
+# ar = [1, 3, 2, 6, 1, 2]
+#
+# def divisibleSumPairs(n, k, ar)
+#   # "test"
+#   #n is just array.size
+#   #k is the number to mod with
+#   # num1 < num2
+#   count_of_pairs = 0
+#   array_size = ar.size
+#   counter = 0
+#   while counter < array_size
+#     i = ar[0]
+#     ar.shift
+#     ar.each do |element|
+#       # puts "#{i} and #{element}"
+#       # if i < element
+#         # puts "#{i} + #{element} % #{k} = #{(i+element) % k}"
+#         if (i+element) % k === 0
+#           count_of_pairs +=1
+#         end
+#       # end #if
+#     end
+#     counter +=1
+#   end #while
+#   count_of_pairs
+# end
+#
+# puts divisibleSumPairs(n,k,ar)
+#
 
 # Complete the breakingRecords function in the editor below. It must return an integer array containing the numbers of times she broke her records. Index
 #
