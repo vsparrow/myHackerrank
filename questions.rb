@@ -1,38 +1,70 @@
-# Complete the breakingRecords function in the editor below. It must return an integer array containing the numbers of times she broke her records. Index
+n = 6
+k = 3
+ar = [1, 3, 2, 6, 1, 2]
 
-array = [10, 5, 20, 20, 4, 5, 2, 25, 1]
-def breakingRecords(scores)
-  high = 0
-  low = 0
-   # scores
-  highcounter = 0
-  lowcounter = 0
-
-   scores.each_with_index do |score,i|
-     # if score
-     if i === 0
-       # puts "first elements"
-       high = score
-       low = score
-     else
-       if score > high
-         high = score
-         highcounter+=1
-       elsif score < low
-         low = score
-         lowcounter +=1
-       end
-
-     end
-     # puts "score is #{score}, i is #{i}"
-   end
-   # [lowcounter, highcounter]
-   [highcounter,lowcounter]
+def divisibleSumPairs(n, k, ar)
+  # "test"
+  #n is just array.size
+  #k is the number to mod with
+  # num1 < num2
+  count_of_pairs = 0
+  array_size = ar.size
+  counter = 0
+  while counter < array_size
+    i = ar[0]
+    ar.shift
+    ar.each do |element|
+      # puts "#{i} and #{element}"
+      # if i < element
+        # puts "#{i} + #{element} % #{k} = #{(i+element) % k}"
+        if (i+element) % k === 0
+          count_of_pairs +=1
+        end
+      # end #if
+    end
+    counter +=1
+  end #while
+  count_of_pairs
 end
 
-puts "#{breakingRecords(array)} is return"
+puts divisibleSumPairs(n,k,ar)
 
 
+# Complete the breakingRecords function in the editor below. It must return an integer array containing the numbers of times she broke her records. Index
+#
+# array = [10, 5, 20, 20, 4, 5, 2, 25, 1]
+# def breakingRecords(scores)
+#   high = 0
+#   low = 0
+#    # scores
+#   highcounter = 0
+#   lowcounter = 0
+#
+#    scores.each_with_index do |score,i|
+#      # if score
+#      if i === 0
+#        # puts "first elements"
+#        high = score
+#        low = score
+#      else
+#        if score > high
+#          high = score
+#          highcounter+=1
+#        elsif score < low
+#          low = score
+#          lowcounter +=1
+#        end
+#
+#      end
+#      # puts "score is #{score}, i is #{i}"
+#    end
+#    # [lowcounter, highcounter]
+#    [highcounter,lowcounter]
+# end
+#
+# puts "#{breakingRecords(array)} is return"
+#
+#
 # # The elements of the first array are all factors of the integer being considered
 # # The integer being considered is a factor of all elements of the second array
 # a = [2, 4]
