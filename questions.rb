@@ -1,26 +1,53 @@
-def migratoryBirds(ar)
-  # "hi"
-  # limit: 1,2,3,4,5 are the only types
-  counting_ar = Array.new(5)
-  counting_ar.each_with_index {|e,index| counting_ar[index]= 0}
-  # counting_ar.size #5
-  # counting_ar[0] #nil
-  ar.each do |element|
-    counting_ar[element-1] += 1
+def longestWord(sentence)
+  #remove non-alpha chars
+  sentence = sentence.split(" ")
+  longest = ""
+  for i in 0...sentence.length
+    # puts i
+    current = sentence[i].gsub(/\W/,'')
+    # puts current
+    longest = current if current.length > longest.length
   end
-  most_common_bird = 1 #default
-  most_common_bird_count = counting_ar[0]
-  counting_ar.each_with_index do |element,index|
-    if element > most_common_bird_count
-      most_common_bird = index+1 #its plus 1 because 1-5 not 0-4
-    end
-  end
-  # counting_ar
-  most_common_bird
+  # sentence.gsub!(/\W/,'')
+  # sentence.gsub!(/[^a-z\b]/i, '')
+  # puts sentence
+  puts longest
 end
 
-puts migratoryBirds([1, 4, 4, 4, 5, 3])
+#
+longestWord("fun&!! time")
+#
+# Output:"time"
+#
+# Input:"I love dogs"
+#
+# Output:"love"
 
+
+
+# def migratoryBirds(ar)
+#   # "hi"
+#   # limit: 1,2,3,4,5 are the only types
+#   counting_ar = Array.new(5)
+#   counting_ar.each_with_index {|e,index| counting_ar[index]= 0}
+#   # counting_ar.size #5
+#   # counting_ar[0] #nil
+#   ar.each do |element|
+#     counting_ar[element-1] += 1
+#   end
+#   most_common_bird = 1 #default
+#   most_common_bird_count = counting_ar[0]
+#   counting_ar.each_with_index do |element,index|
+#     if element > most_common_bird_count
+#       most_common_bird = index+1 #its plus 1 because 1-5 not 0-4
+#     end
+#   end
+#   # counting_ar
+#   most_common_bird
+# end
+#
+# puts migratoryBirds([1, 4, 4, 4, 5, 3])
+#
 
 # n = 6
 # k = 3
