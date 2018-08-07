@@ -1,39 +1,109 @@
-def alphabetSoup(str)
-  puts str
-  str = str.split("")
-  counter = 0
-  anyChanges = false
-  while(true)
-    anyChanges = false
-    for i in 0...str.length-1
-      if str[i] > str[i+1]
-        temp = str[i+1]
-        str[i+1] = str[i]
-        str[i] = temp
-        anyChanges = true
-      end #if
-    end #for
 
-    break if anyChanges == false
-    counter +=1
-    break if counter == 1000
-  end
-  # puts counter
-  puts str.join("")
-end
-
-# function AlphabetSoup(str) take the str string parameter being passed and
-# return the string with the letters in alphabetical order (ie. hello becomes ehllo).
-# Assume numbers and punctuation symbols will not be included in the string.
+# function QuestionsMarks(str) take the str string parameter, which will contain
+# single digit numbers, letters, and question marks, and
+# check if there are exactly 3 question marks between every pair of two numbers that add up to 10.
+#  If so, then your program should return the string true,
+#  otherwise it should return the string false.
+#  If there aren't any two numbers that add up to 10 in the string,
+#  then your program should return false as well.
+#
+# For example: if str is "arrb6???4xxbl5???eee5" then your program should return true
+# because there are exactly 3 question marks between 6 and 4,
+# and 3 question marks between 5 and 5 at the end of the string.
 # Sample Test Cases
 #
-alphabetSoup "coderbyte"
-# Input:"coderbyte"
-# Output:"bcdeeorty"
+
+def questionMarks(str)
+  puts str
+  passes = false
+  # get location of numbers
+  locationOfNums = []
+  for i in 0...str.length
+    locationOfNums.push(i) if str[i].ord >= 48 && str[i].ord <=57
+  end
+  puts "#{locationOfNums}"
+
+  #test to see if numbers add up to 10
+  somePairEquals10 = false
+  pairOf10s = []
+  for i in 0...locationOfNums.length-1
+    puts "#{str[locationOfNums[i]].to_i} + #{str[locationOfNums[i+1]].to_i} is #{str[locationOfNums[i]].to_i + str[locationOfNums[i+1]].to_i}"
+
+    if str[locationOfNums[i]].to_i + str[locationOfNums[i+1]].to_i == 10
+      somePairEquals10 = true
+      pairOf10s.push([locationOfNums[i].to_i, locationOfNums[i+1].to_i])
+    end #if
+  end #for
+  puts "somePairEquals10: #{somePairEquals10}"
+  puts "pairOf10s #{pairOf10s}"
+
+  #see if exactly 3 questionMarks betweek pairs
+  if pairOf10s.length == 0
+    puts "NO PAIRS : #{pairOf10s}"
+    return false
+  end
+  pairOf10s.each do |pair|
+    # puts "here is #{pair}"
+    countOfQuestion = 0
+    for i in pair[0]...pair[1]
+      # puts str[i]
+      countOfQuestion +=1 if str[i] == '?'
+    end #for
+    puts "countOfQuestion is #{countOfQuestion}"
+    return false if countOfQuestion != 3  #a pair of 10s did not have 3 question marks
+  end #each
+  return true #nothing to say false
+  # puts passes #ths was taken care of by "no pairs "
+end
+
+puts questionMarks "aa6?9"
+# Input:"aa6?9"
+# Output:"false"
 #
-alphabetSoup "hooplah"
-# Input:"hooplah"
-# Output:"ahhloop"
+puts "*********************"
+puts questionMarks "acc?7??sss?3rr1??????5"
+puts questionMarks "8?a?2acc?7??sss?3rr1??????5"
+# Input:"acc?7??sss?3rr1??????5"
+# Output:"true"
+#
+
+
+# def alphabetSoup(str)
+#   puts str
+#   str = str.split("")
+#   counter = 0
+#   anyChanges = false
+#   while(true)
+#     anyChanges = false
+#     for i in 0...str.length-1
+#       if str[i] > str[i+1]
+#         temp = str[i+1]
+#         str[i+1] = str[i]
+#         str[i] = temp
+#         anyChanges = true
+#       end #if
+#     end #for
+#
+#     break if anyChanges == false
+#     counter +=1
+#     break if counter == 1000
+#   end
+#   # puts counter
+#   puts str.join("")
+# end
+#
+# # function AlphabetSoup(str) take the str string parameter being passed and
+# # return the string with the letters in alphabetical order (ie. hello becomes ehllo).
+# # Assume numbers and punctuation symbols will not be included in the string.
+# # Sample Test Cases
+# #
+# alphabetSoup "coderbyte"
+# # Input:"coderbyte"
+# # Output:"bcdeeorty"
+# #
+# alphabetSoup "hooplah"
+# # Input:"hooplah"
+# # Output:"ahhloop"
 
 
 
