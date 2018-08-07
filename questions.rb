@@ -1,28 +1,67 @@
-def longestWord(sentence)
-  #remove non-alpha chars
-  sentence = sentence.split(" ")
-  longest = ""
-  for i in 0...sentence.length
-    # puts i
-    current = sentence[i].gsub(/\W/,'')
-    # puts current
-    longest = current if current.length > longest.length
-  end
-  # sentence.gsub!(/\W/,'')
-  # sentence.gsub!(/[^a-z\b]/i, '')
-  # puts sentence
-  puts longest
+def letterChanges(input)
+  puts input
+  input = input.split("")
+  for i in 0...input.length
+    num = input[i].ord
+    # newChar = ''
+    if num == 122
+      # newChar = 'a'
+      input[i] = 'A'
+    elsif num >= 97 && num<=121
+      # newChar = (num+1).chr
+      input[i] = (num+1).chr
+    end #if
+
+    if (input[i]=="e" || input[i]=="i" || input[i]=="o"|| input[i]=="u") # 'a' taken care of
+      input[i] = (num-31).chr
+    end
+  end #for
+  puts input.join("")
 end
+# Using the Ruby language, have the function LetterChanges(str) take the str parameter being passed and
+# modify it using the following algorithm.
+# Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a)
+# Then capitalize every vowel in this new string (a, e, i, o, u) and
+# finally return this modified string.
+# Sample Test Cases
+#
+# Input:"hello*3"
+letterChanges("hello*3 za")
+#
+# Output:"Ifmmp*3"
+#
+# Input:"fun times!"
+letterChanges "fun times!"
+#
+# Output:"gvO Ujnft!"
+#
 
-#
-longestWord("fun&!! time")
-#
-# Output:"time"
-#
-# Input:"I love dogs"
-#
-# Output:"love"
 
+# def longestWord(sentence)
+#   #remove non-alpha chars
+#   sentence = sentence.split(" ")
+#   longest = ""
+#   for i in 0...sentence.length
+#     # puts i
+#     current = sentence[i].gsub(/\W/,'')
+#     # puts current
+#     longest = current if current.length > longest.length
+#   end
+#   # sentence.gsub!(/\W/,'')
+#   # sentence.gsub!(/[^a-z\b]/i, '')
+#   # puts sentence
+#   puts longest
+# end
+#
+# #
+# longestWord("fun&!! time")
+# #
+# # Output:"time"
+# #
+# # Input:"I love dogs"
+# #
+# # Output:"love"
+#
 
 
 # def migratoryBirds(ar)
