@@ -1,40 +1,79 @@
-def letterChanges(input)
-  puts input
-  input = input.split("")
-  for i in 0...input.length
-    num = input[i].ord
-    # newChar = ''
-    if num == 122
-      # newChar = 'a'
-      input[i] = 'A'
-    elsif num >= 97 && num<=121
-      # newChar = (num+1).chr
-      input[i] = (num+1).chr
-    end #if
+def alphabetSoup(str)
+  puts str
+  str = str.split("")
+  counter = 0
+  anyChanges = false
+  while(true)
+    anyChanges = false
+    for i in 0...str.length-1
+      if str[i] > str[i+1]
+        temp = str[i+1]
+        str[i+1] = str[i]
+        str[i] = temp
+        anyChanges = true
+      end #if
+    end #for
 
-    if (input[i]=="e" || input[i]=="i" || input[i]=="o"|| input[i]=="u") # 'a' taken care of
-      input[i] = (num-31).chr
-    end
-  end #for
-  puts input.join("")
+    break if anyChanges == false
+    counter +=1
+    break if counter == 1000
+  end
+  # puts counter
+  puts str.join("")
 end
-# Using the Ruby language, have the function LetterChanges(str) take the str parameter being passed and
-# modify it using the following algorithm.
-# Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a)
-# Then capitalize every vowel in this new string (a, e, i, o, u) and
-# finally return this modified string.
+
+# function AlphabetSoup(str) take the str string parameter being passed and
+# return the string with the letters in alphabetical order (ie. hello becomes ehllo).
+# Assume numbers and punctuation symbols will not be included in the string.
 # Sample Test Cases
 #
-# Input:"hello*3"
-letterChanges("hello*3 za")
+alphabetSoup "coderbyte"
+# Input:"coderbyte"
+# Output:"bcdeeorty"
 #
-# Output:"Ifmmp*3"
+alphabetSoup "hooplah"
+# Input:"hooplah"
+# Output:"ahhloop"
+
+
+
+# def letterChanges(input)
+#   puts input
+#   input = input.split("")
+#   for i in 0...input.length
+#     num = input[i].ord
+#     # newChar = ''
+#     if num == 122
+#       # newChar = 'a'
+#       input[i] = 'A'
+#     elsif num >= 97 && num<=121
+#       # newChar = (num+1).chr
+#       input[i] = (num+1).chr
+#     end #if
 #
-# Input:"fun times!"
-letterChanges "fun times!"
-#
-# Output:"gvO Ujnft!"
-#
+#     if (input[i]=="e" || input[i]=="i" || input[i]=="o"|| input[i]=="u") # 'a' taken care of
+#       input[i] = (num-31).chr
+#     end
+#   end #for
+#   puts input.join("")
+# end
+# # Using the Ruby language, have the function LetterChanges(str) take the str parameter being passed and
+# # modify it using the following algorithm.
+# # Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a)
+# # Then capitalize every vowel in this new string (a, e, i, o, u) and
+# # finally return this modified string.
+# # Sample Test Cases
+# #
+# # Input:"hello*3"
+# letterChanges("hello*3 za")
+# #
+# # Output:"Ifmmp*3"
+# #
+# # Input:"fun times!"
+# letterChanges "fun times!"
+# #
+# # Output:"gvO Ujnft!"
+# #
 
 
 # def longestWord(sentence)
