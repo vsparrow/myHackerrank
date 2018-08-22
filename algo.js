@@ -47,7 +47,8 @@ let countAndSay = (input)=>{
   }//while
   //join new array and parse int
   //return
-  return input
+  // return input
+  return parseInt(solutionValue.join(""))
 }
 
 console.log(countAndSay(1))
