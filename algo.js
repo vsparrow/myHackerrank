@@ -23,15 +23,19 @@
 let countAndSay = (input)=>{
   //change number to string
   //split string
+  input = input.toString().split("").sort().reverse()
+
   //sort high to low
   //count duplicates of input[0]
   //  push count of duplicates, and character value of input[0] to new array
   //  splice off all duplicates + inut[0]
   // repeat until inpt length is 0
   //join new array and parse int
-  //return   
+  //return
+  return input
 }
 
-console.log(1)
-console.log(11)
-console.log(21)
+console.log(countAndSay(1))
+console.log(countAndSay(11))
+console.log(countAndSay(21))
+console.log(countAndSay(2133))
