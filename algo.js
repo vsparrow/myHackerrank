@@ -23,13 +23,28 @@
 let countAndSay = (input)=>{
   //change number to string
   //split string
-  input = input.toString().split("").sort().reverse()
-
   //sort high to low
-  //count duplicates of input[0]
-  //  push count of duplicates, and character value of input[0] to new array
-  //  splice off all duplicates + inut[0]
-  // repeat until inpt length is 0
+
+  input = input.toString().split("").sort().reverse()
+  let current
+  let countCurrent= 0
+  let solutionValue=[]
+  while(input.length > 0){
+    let current = input[0]
+    countCurrent++
+    //count duplicates of input[0]
+    for(let i=1;i<input.length;i++){
+      if(input[i]!= current) { i = input.length}  //value not equal current
+      else{countCurrent++}
+    }//for
+    //  push count of duplicates, and character value of input[0] to new array
+    solutionValue.push(countCurrent)
+    solutionValue.push(current)
+    //  splice off all duplicates + inut[0]
+    input.splice(0,countCurrent)
+    // repeat until inpt length is 0
+    countCurrent = 0 //reset for next loop
+  }//while
   //join new array and parse int
   //return
   return input
