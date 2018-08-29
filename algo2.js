@@ -14,11 +14,23 @@ let addString = (num1,num2)=>{
   //*note since this is JS we could just add the digits, but the point of this is NOT to convert to int
   // this is doing it "the hard way"
 
+  let sum = 0
+  let base10=1
+  let carry = 0
+  //loop until both of the arrays is empty AND carry  is 0
+    //shift element 0 of both strings, store into variable
+      // if an array has no elements set variable = 0
+    //call adder function. send both variables and carry
+      //if adder return has 1 element, multiply return element 0 by base10 and add to sum
+        // set carry to 0
+      //else adder has 2 elements, the second a carry value, set carry to returned carry value
+    // multiply  base10 by 10
 
-  //shift add element 0 of both strings
-  //if one array is empty add carry and
-  //if both array emty and carry has value, add carry to sum
+  //loop broken by Both of the arrays having no more elements
+
+  //CHECK: both array empty and carry id 0,
   return "test"
+  //return sum
 }
 
 addString(203,500)
