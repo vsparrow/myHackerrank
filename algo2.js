@@ -19,9 +19,17 @@
 let subset = (nums)=>{
   let subset = []
   //get all single digits
-  nums.forEach((element)=>{subset.push(element)})
+  nums.forEach((element)=>{subset.push([element])})
+  while(nums.length > 0){
+    //loop through each element combo, shifting of first element  in each round
+    let miniset = []
+    for(let i=0;i< nums.length;i++){
+      miniset.push(nums[i])
+      subset.push(miniset)
+    }//for
+    nums.shift()
+  }//while
 
-  // return "test"
   return subset
 }//function
 
