@@ -16,3 +16,14 @@
 //   [1,2],
 //   []
 // ]
+let subset = (nums)=>{
+  let subset = []
+  //get all single digits
+  nums.forEach((element)=>{subset.push(element)})
+
+  // return "test"
+  return subset
+}//function
+
+subset([1,2,3])
+// console.log(subset([1,2,3]));
