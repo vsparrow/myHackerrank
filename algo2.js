@@ -1,3 +1,28 @@
+// Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+//
+// Note:
+//
+// The length of both num1 and num2 is < 5100.
+// Both num1 and num2 contains only digits 0-9.
+// Both num1 and num2 does not contain any leading zero.
+// You must not use any built-in BigInteger library or convert the inputs to integer directly.
+let addString = (num1,num2)=>{
+  //reverse both strings so we are always working with first element
+
+  //0 is 48, 57 is 9
+  //create function that maps the addition of two character codes
+  //*note since this is JS we could just add the digits, but the point of this is NOT to convert to int
+  // this is doing it "the hard way"
+
+
+  //shift add element 0 of both strings
+  //if one array is empty add carry and
+  //if both array emty and carry has value, add carry to sum
+  return "test"
+}
+
+addString(203,500)
+
 //
 // //not sure will have to researc hand come back to this
 //
