@@ -61,10 +61,10 @@ let addByAsciiConversion = (num1,num2,carry)=>{
   let sum = (addend1 + addend2 + carry) % 10
   let  carryReturn = Math.floor( (addend1 + addend2 + carry) / 10)
 
-  console.log(addend1);
-  console.log(addend2);
-  console.log(sum);
-  console.log(carryReturn);
+  // console.log(addend1);
+  // console.log(addend2);
+  // console.log(sum);
+  // console.log(carryReturn);
   return [sum,carryReturn]
 }
 // addByAsciiConversion("8","9",0)
