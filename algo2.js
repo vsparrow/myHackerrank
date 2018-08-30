@@ -67,7 +67,7 @@ let addByAsciiConversion = (num1,num2,carry)=>{
   console.log(carryReturn);
   return [sum,carryReturn]
 }
-addByAsciiConversion("8","9",0)
+// addByAsciiConversion("8","9",0)
 
 
 let addString = (num1,num2)=>{
@@ -86,16 +86,20 @@ let addString = (num1,num2)=>{
     if(num1.length > 0){temp1 = num1.shift()}
     if(num2.length > 0){temp2 = num2.shift()}
     //call adder function. send both variables and carry
-      //if adder return has 1 element, multiply return element 0 by base10 and add to sum
-        // set carry to 0
-      //else adder has 2 elements, the second a carry value, set carry to returned carry value
+    let convertedValue = addByAsciiConversion(temp1, temp2, carry)
+    // console.log(convertedValue)
+    // multiply return element 0 by base10 and add to sum
+    sum += (convertedValue[0]*base10)
+    //convertedValue[1] will always contain what carry should be, 0 or 1
+    carry = convertedValue[1]
     // multiply  base10 by 10
+    base10 = base10 * 10
   }// END LOOP
   //loop broken by Both of the arrays having no more elements
 
   //CHECK: both array empty and carry id 0,
-  return "test"
-  //return sum
+  // return "test"
+  return sum
 }
 
 addString("203","500")
