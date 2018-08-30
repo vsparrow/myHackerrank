@@ -71,21 +71,26 @@ addByAsciiConversion("8","9",0)
 
 
 let addString = (num1,num2)=>{
-  //reverse both strings so we are always working with first element
-
-
   let sum = 0
   let base10=1
   let carry = 0
+  //reverse both strings so we are always working with first element
+  num1 = num1.split("").reverse()
+  num2 = num2.split("").reverse()
   //loop until both of the arrays is empty AND carry  is 0
+  while(num1.length > 0 || num2.length > 0 || carry > 0){
     //shift element 0 of both strings, store into variable
       // if an array has no elements set variable = 0
+    let temp1 = "0"
+    let temp2 = "0"
+    if(num1.length > 0){temp1 = num1.shift()}
+    if(num2.length > 0){temp2 = num2.shift()}
     //call adder function. send both variables and carry
       //if adder return has 1 element, multiply return element 0 by base10 and add to sum
         // set carry to 0
       //else adder has 2 elements, the second a carry value, set carry to returned carry value
     // multiply  base10 by 10
-
+  }// END LOOP
   //loop broken by Both of the arrays having no more elements
 
   //CHECK: both array empty and carry id 0,
@@ -93,7 +98,7 @@ let addString = (num1,num2)=>{
   //return sum
 }
 
-addString(203,500)
+addString("203","500")
 
 //
 // //not sure will have to researc hand come back to this
