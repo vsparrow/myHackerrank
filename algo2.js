@@ -6,13 +6,77 @@
 // Both num1 and num2 contains only digits 0-9.
 // Both num1 and num2 does not contain any leading zero.
 // You must not use any built-in BigInteger library or convert the inputs to integer directly.
+
+//0 is 48, 57 is 9
+//create function that maps the addition of two character codes
+//*note since this is JS we could just add the digits, but the point of this is NOT to convert to int
+// this is doing it "the hard way"
+let asciiCoversion = (digit)=>{
+  let val = 0
+  switch (digit) {
+    case 48:
+      val = 0
+      break;
+    case 49:
+      val = 1
+      break;
+    case 50:
+      val = 2
+      break;
+    case 51:
+      val = 3
+      break;
+    case 52:
+      val = 4
+      break;
+    case 53:
+      val = 5
+      break;
+    case 54:
+      val = 6
+      break;
+    case 55:
+      val = 7
+      break;
+    case 56:
+      val = 8
+      break;
+    case 57:
+      val = 9
+      break;
+
+    default:
+
+  }
+  return val
+}
+
+
+switch(fruits) {
+    case "Banana":
+        text = "Banana is good!";
+        break;
+    case "Orange":
+        text = "I am not a fan of orange.";
+        break;
+    case "Apple":
+        text = "How you like them apples?";
+        break;
+    default:
+        text = "I have never heard of that fruit...";
+}
+
+let addByAsciiConversion = (num1,num2,carry)=>{
+  //assume num1, and num2 ALWAYS "0-9" in char format
+  //incoming carry can be 0 or 1
+  console.log(num1.charCodeAt(0));
+  console.log(num2.charCodeAt(0));
+  let  carryReturn = 0
+}
+
 let addString = (num1,num2)=>{
   //reverse both strings so we are always working with first element
 
-  //0 is 48, 57 is 9
-  //create function that maps the addition of two character codes
-  //*note since this is JS we could just add the digits, but the point of this is NOT to convert to int
-  // this is doing it "the hard way"
 
   let sum = 0
   let base10=1
