@@ -11,7 +11,7 @@
 //create function that maps the addition of two character codes
 //*note since this is JS we could just add the digits, but the point of this is NOT to convert to int
 // this is doing it "the hard way"
-let asciiCoversion = (digit)=>{
+let asciiConversion = (digit)=>{
   let val = 0
   switch (digit) {
     case 48:
@@ -52,27 +52,23 @@ let asciiCoversion = (digit)=>{
 }
 
 
-switch(fruits) {
-    case "Banana":
-        text = "Banana is good!";
-        break;
-    case "Orange":
-        text = "I am not a fan of orange.";
-        break;
-    case "Apple":
-        text = "How you like them apples?";
-        break;
-    default:
-        text = "I have never heard of that fruit...";
-}
-
 let addByAsciiConversion = (num1,num2,carry)=>{
   //assume num1, and num2 ALWAYS "0-9" in char format
-  //incoming carry can be 0 or 1
-  console.log(num1.charCodeAt(0));
-  console.log(num2.charCodeAt(0));
-  let  carryReturn = 0
+  //incoming carry can be 0 or 1;
+
+  let addend1 = asciiConversion(num1.charCodeAt(0))
+  let addend2 = asciiConversion(num2.charCodeAt(0))
+  let sum = (addend1 + addend2 + carry) % 10
+  let  carryReturn = Math.floor( (addend1 + addend2 + carry) / 10)
+
+  console.log(addend1);
+  console.log(addend2);
+  console.log(sum);
+  console.log(carryReturn);
+  return [sum,carryReturn]
 }
+addByAsciiConversion("8","9",0)
+
 
 let addString = (num1,num2)=>{
   //reverse both strings so we are always working with first element
