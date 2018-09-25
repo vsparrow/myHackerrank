@@ -12,6 +12,23 @@
 # Input: [2,2,1,1,1,2,2]
 # Output: 2
 
+def find_highest(hash)
+  highest_key = nil
+  highest_value = nil
+  hash.each do |key,value|
+    if highest_value == nil
+      highest_key = key
+      highest_value = value
+    else
+      if highest_value < value
+        highest_key = key
+        highest_value = value
+      end  #inner if
+    end  #if else
+  end  #each
+  highest_key
+end
+
 def majorityElement(array)
   counter = Hash.new
   array.each do |elm|
@@ -21,15 +38,13 @@ def majorityElement(array)
       counter[elm] += 1
     end  #if
   end #each
-  counter
+  find_highest counter
 end
 
 value = majorityElement([3,2,3])
 puts value
 # Output: 3
-# Example 2:
 
 value2 = majorityElement([2,2,1,1,1,2,2])
 puts value2
-
 # Output: 2
