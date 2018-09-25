@@ -2,11 +2,21 @@
 # while maintaining the relative order of the non-zero elements.
 # You must do this in-place without making a copy of the array.
 # Minimize the total number of operations.
-def moveZeroes array
-
+def move_zeroes array
+  counter = 0
+  start_of_zeros = array.length
+  while(counter < start_of_zeros)
+    if( array[counter] == 0)
+      array.push(array.slice!(counter))
+      counter -=1
+      start_of_zeros -= 1
+    end #if
+    counter += 1
+  end #while
+  puts array
 end
 
-moveZeroes [0,1,0,3,12]
+move_zeroes [0,1,0,3,12]
 # Output: [1,3,12,0,0]
 
 
