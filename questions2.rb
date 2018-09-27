@@ -9,7 +9,14 @@
 
 
 def find_duplicate array
-  array
+  counted = Hash.new
+  array.each do |elm|
+    if counted[elm]
+      return elm
+    end #if
+    counted[elm] = 1
+  end #each
+  "none"
 end
 
 puts find_duplicate [1,3,4,2,2]
