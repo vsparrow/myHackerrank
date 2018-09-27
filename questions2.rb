@@ -1,10 +1,27 @@
 # Given an unsorted array of integers, find the length of longest increasing subsequence.
 
 def length_of_LIS array
+  current_longest = 0
+  counter = 1
+  current_LIS_length = 0
+  while counter < array.size
+    if array[counter] > array[counter-1]
+      if current_LIS_length == 0
+        current_LIS_length = 2
+      else
+        current_LIS_length +=1
 
+      end #if inner
+    else
+      current_longest = current_LIS_length if current_LIS_length > current_longest
+      current_LIS_length = 0
+    end  #if outer
+    counter +=1
+  end #while
+  current_longest
 end
 
-length_of_LIS [10,9,2,5,3,7,101,18]
+puts length_of_LIS [10,9,2,5,3,7,101,18]
 # Output: 4
 # Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
 
