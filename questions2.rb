@@ -1,28 +1,39 @@
-# Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive),
-# prove that at least one duplicate number must exist.
-# Assume that there is only one duplicate number, find the duplicate one.
-# You must not modify the array (assume the array is read only).
-# You must use only constant, O(1) extra space.
-# Your runtime complexity should be less than O(n2).
-# There is only one duplicate number in the array, but it could be repeated more than once.
+# Given an unsorted array of integers, find the length of longest increasing subsequence.
 
+def length_of_LIS array
 
-
-def find_duplicate array
-  counted = Hash.new
-  array.each do |elm|
-    if counted[elm]
-      return elm
-    end #if
-    counted[elm] = 1
-  end #each
-  "none"
 end
 
-puts find_duplicate [1,3,4,2,2]
-# Output: 2
-puts find_duplicate [3,1,3,4,2]
-# Output: 3
+length_of_LIS [10,9,2,5,3,7,101,18]
+# Output: 4
+# Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+
+
+# # Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive),
+# # prove that at least one duplicate number must exist.
+# # Assume that there is only one duplicate number, find the duplicate one.
+# # You must not modify the array (assume the array is read only).
+# # You must use only constant, O(1) extra space.
+# # Your runtime complexity should be less than O(n2).
+# # There is only one duplicate number in the array, but it could be repeated more than once.
+#
+#
+#
+# def find_duplicate array
+#   counted = Hash.new
+#   array.each do |elm|
+#     if counted[elm]
+#       return elm
+#     end #if
+#     counted[elm] = 1
+#   end #each
+#   "none"
+# end
+#
+# puts find_duplicate [1,3,4,2,2]
+# # Output: 2
+# puts find_duplicate [3,1,3,4,2]
+# # Output: 3
 
 
 
