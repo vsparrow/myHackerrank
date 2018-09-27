@@ -1,24 +1,45 @@
-# Given an array nums, write a function to move all 0's to the end of it
-# while maintaining the relative order of the non-zero elements.
-# You must do this in-place without making a copy of the array.
-# Minimize the total number of operations.
-def move_zeroes array
-  counter = 0
-  start_of_zeros = array.length
-  while(counter < start_of_zeros)
-    if( array[counter] == 0)
-      array.push(array.slice!(counter))
-      counter -=1
-      start_of_zeros -= 1
-    end #if
-    counter += 1
-  end #while
-  puts array
+# Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive),
+# prove that at least one duplicate number must exist.
+# Assume that there is only one duplicate number, find the duplicate one.
+# You must not modify the array (assume the array is read only).
+# You must use only constant, O(1) extra space.
+# Your runtime complexity should be less than O(n2).
+# There is only one duplicate number in the array, but it could be repeated more than once.
+
+
+
+def find_duplicate array
+  array
 end
 
-move_zeroes [0,1,0,3,12]
-# Output: [1,3,12,0,0]
+puts find_duplicate [1,3,4,2,2]
+# Output: 2
+puts find_duplicate [3,1,3,4,2]
+# Output: 3
 
+
+
+# # Given an array nums, write a function to move all 0's to the end of it
+# # while maintaining the relative order of the non-zero elements.
+# # You must do this in-place without making a copy of the array.
+# # Minimize the total number of operations.
+# def move_zeroes array
+#   counter = 0
+#   start_of_zeros = array.length
+#   while(counter < start_of_zeros)
+#     if( array[counter] == 0)
+#       array.push(array.slice!(counter))
+#       counter -=1
+#       start_of_zeros -= 1
+#     end #if
+#     counter += 1
+#   end #while
+#   puts array
+# end
+#
+# move_zeroes [0,1,0,3,12]
+# # Output: [1,3,12,0,0]
+#
 
 
 
