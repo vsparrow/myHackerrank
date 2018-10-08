@@ -9,6 +9,10 @@ function get_list_of_characters(words){
 				console.log(words[i][j])
 				table[words[i][j]] = 1
 			}
+			else
+			{
+				table[words[i][j]] += 1
+			}
 		}
 	}
 	// return "test"
