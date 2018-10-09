@@ -20,8 +20,12 @@ function get_list_of_characters(words){
 }
 
 function word_can_be_made(word,table){
-	word = word.split("").sort()
-	console.log(word)
+	word = word.split("")
+	// console.log(word)
+	let count = {}
+	word.forEach((char)=>{count[char] = (count[char] || 0)+1})
+	console.log(count)
+
 }
  
 function longest_word(words){
