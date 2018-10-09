@@ -21,6 +21,7 @@ function get_list_of_characters(words){
 
 function word_can_be_made(word,table){
 	word = word.split("")
+	word.pop()
 	// console.log(word)
 	let count = {}
 	word.forEach((char)=>{count[char] = (count[char] || 0)+1})
