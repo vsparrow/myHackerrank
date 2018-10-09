@@ -18,10 +18,23 @@ function get_list_of_characters(words){
 	// return "test"
 	return table
 }
+
+function word_can_be_made(word,table){
+	word = word.split("").sort()
+	console.log(word)
+}
  
 function longest_word(words){
  // return   "longest"
- return get_list_of_characters(words)
+ let table = get_list_of_characters(words)
+ let longest = ""
+ for(i=0;i<words.length;i++)
+ {
+ 	word_can_be_made(words[i],table)
+ }
+
+
+ // return table
 }
 // # end
 
