@@ -6,7 +6,7 @@ function get_list_of_characters(words){
 		{
 			if (!(words[i][j] in table))
 			{
-				console.log(words[i][j])
+				// console.log(words[i][j])
 				table[words[i][j]] = 1
 			}
 			else
@@ -24,8 +24,16 @@ function word_can_be_made(word,table){
 	// console.log(word)
 	let count = {}
 	word.forEach((char)=>{count[char] = (count[char] || 0)+1})
-	console.log(count)
+	// console.log(count)
+	for (const [key, value] of Object.entries(count)) {
+  		// console.log(key, value);
+  		if((table[key] -count[key]) < 1)
+  		{
+  			return false
+  		}
+	}
 
+	return true
 }
  
 function longest_word(words){
@@ -34,11 +42,13 @@ function longest_word(words){
  let longest = ""
  for(i=0;i<words.length;i++)
  {
- 	word_can_be_made(words[i],table)
+ 	// word_can_be_made(words[i],table)
+ 	console.log(word_can_be_made(words[i],table))
  }
 
 
  // return table
+ return longest
 }
 // # end
 
