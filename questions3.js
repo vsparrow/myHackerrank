@@ -42,8 +42,13 @@ function longest_word(words){
  let longest = ""
  for(i=0;i<words.length;i++)
  {
- 	// word_can_be_made(words[i],table)
- 	console.log(word_can_be_made(words[i],table))
+ 	if (word_can_be_made(words[i],table)) {
+ 		if(words[i] > longest)
+ 		{
+ 			 		longest = words[i]
+ 		}
+ 	}
+ 	// console.log(word_can_be_made(words[i],table))
  }
 
 
