@@ -1,24 +1,28 @@
 
 let canSelfDivide = (num)=>{
 	let numToString = num.toString().split("")
-	numToString.forEach((n)=>{
-		if((num % n ) != 0)
+	// numToString.forEach((n)=>{
+	for(let i=0; i < numToString.length; i++){	
+		if((num % numToString[i] ) != 0)
 		{
 			return false
 		}
-	})
+	}
 	return true
-	return num
+	// return num
 }
 
 var selfDividingNumbers = function(left, right) {
     let selfDividing = []
     for(let i = left; i <= right; i++)
     {
-    	console.log(canSelfDivide(i))
+    	// console.log(canSelfDivide(i))
+    	if(canSelfDivide(i)) { selfDividing.push(i)} 
+
     }
 
-    return "test"
+    // return "test"
+    return selfDividing
 };
 
 // A self-dividing number is a number that is divisible by every digit it contains.
