@@ -13,10 +13,12 @@
 
 let timeFormatter = (hours,minutes) => {
   let time = ""
-  hours < 10 ? time =  time + "0" + hours : time += hours
+  // hours < 10 ? time =  time + "0" + hours : time += hours
+  time += hours
   time += ":"
   minutes < 10 ? time = time + "0" + minutes : time += minutes
-  console.log(time)
+  // console.log(time)
+  return time
 }
 
 var readBinaryWatch = function(num) {
@@ -35,7 +37,7 @@ var readBinaryWatch = function(num) {
       if(hoursBinaryCount+minutesBinaryCount == num){
         //push item to array
         // console.log(hours + ":" + minutes)
-        timeFormatter(hours,minutes)
+        array.push(timeFormatter(hours,minutes))
       }
       //reset minutesBinaryCount
       minutesBinaryCount = 0
@@ -43,7 +45,8 @@ var readBinaryWatch = function(num) {
     //reset hoursBinaryCount
     hoursBinaryCount = 0
   }//hours
-  return "test"
+  // return "test"
+  return array
 };
 
 console.log(readBinaryWatch(1))
