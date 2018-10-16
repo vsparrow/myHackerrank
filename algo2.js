@@ -11,23 +11,20 @@
 //given int n, returns all possible hours from num
 //num will be 4 or less
 
-let timeFormatter = (hours,minutes) => {
-  let time = ""
-  // hours < 10 ? time =  time + "0" + hours : time += hours
-  time += hours
-  time += ":"
-  minutes < 10 ? time = time + "0" + minutes : time += minutes
-  // console.log(time)
-  return time
-}
+
+// let timeFormatter = (hours,minutes) => {
+//   // let time = ""
+//   // time += hours
+//   // time += ":"
+//   // minutes < 10 ? time = time + "0" + minutes : time += minutes
+//   // return time
+// }
+let timeFormatter = (hours,minutes) => (`${hours}:` + (minutes < 10 ? "0" + minutes : minutes)) //same as above
 
 var readBinaryWatch = function(num) {
-  // let bitCount = 0; //will store the count of 1 values for a certain time: ex: 01:00 will be bitCount of 1
   let array = []; //empty array to hold possible solutions
-
   //num.toString(2) will turn a number to binary
   //split the binary string, and sum up the "on" units, or 1s, via a counter.
-  //if counter == num,
   let hoursBinaryCount = 0;
   let minutesBinaryCount = 0
   for(let hours = 0; hours <= 11; hours++){
@@ -35,17 +32,12 @@ var readBinaryWatch = function(num) {
     for(let minutes = 0; minutes <= 59; minutes++){
       minutes.toString(2).split("").map(n => minutesBinaryCount+=parseInt(n))
       if(hoursBinaryCount+minutesBinaryCount == num){
-        //push item to array
-        // console.log(hours + ":" + minutes)
         array.push(timeFormatter(hours,minutes))
       }
-      //reset minutesBinaryCount
-      minutesBinaryCount = 0
+      minutesBinaryCount = 0 //reset for next minute
     }//minutes
-    //reset hoursBinaryCount
-    hoursBinaryCount = 0
+    hoursBinaryCount = 0 //reset for next hour
   }//hours
-  // return "test"
   return array
 };
 
