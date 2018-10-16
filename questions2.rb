@@ -55,6 +55,11 @@
 # array.join.reverse == '1000'
 def convertToBase7  num
   remainders = []
+  negative = false
+  if num < 0
+    num = num.abs
+    negative = true
+  end
   # remainder = num % 7
   # num = num - remainder
   # remainders.push(remainder)
@@ -64,12 +69,14 @@ def convertToBase7  num
     num = num / 7
     remainders.push(remainder)
   end # while
-  "#{remainders.reverse.join}"
+  negative ? "-#{remainders.reverse.join}": "#{remainders.reverse.join}"
 end
 
 puts convertToBase7 343
+puts convertToBase7 -343
 puts convertToBase7 342
 puts convertToBase7 98
+puts convertToBase7 -98
 
 # # Given an unsorted array of integers, find the length of longest increasing subsequence.
 #
