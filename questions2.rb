@@ -8,6 +8,8 @@
 # Output: "-10"
 
 def convertToBase7  num
+
+end
   #0-6 is what each placement would be
   #10s to 7s
   #6 would be 6, 7 would be 10, 14 would be 20, 21 would be 30
@@ -19,7 +21,8 @@ def convertToBase7  num
   #666 would be 6(7*7) + 6*7 + 6 = 294 + 42 + 6 = 342
   #1000 would be 1(7*7*7)  = 343
   # 343 / 7 /7 /7  = 1
-  # bsic algo 
+  # bsic algo
+
   # 342 % 7 = 6
   # 342 - 6 = 336
   # 336 % 7 = 0 # might only need 1 modulus
@@ -29,8 +32,29 @@ def convertToBase7  num
   # 42 % 7 = 0
   # 42 / 7 = 6
   # if value < 7 done
-
-end
+# array = []
+# value = 343
+# (done 1 time for the single digit)
+# remainder = value mod 7 : 343 % 7 = 0
+# value = value minus remainder(0) : 343 = 343 - 0
+# push remainder to array : array = [0]
+# while value > 7
+#   value = value div 7 : 343 / 7 = 49
+#   remainder = value mod 7 : 49 % 7 = 0
+#   value = value minus remainder(0) : 49 = 49 - 0
+#   push remainder to array : array = [0,0]
+# while value > 7
+#   value = value div 7 : 49 / 7 = 7
+#   remainder = value mod 7 : 7 % 7 = 0
+#   value = value minus remainder(0) : 7 = 7 - 0
+#   push remainder to array : array = [0,0,0]
+# while value > 7
+#   value = value div 7 : 7 / 7 = 1
+#   remainder = value mod 7 : 1 % 7 = 1
+#   value = value minus remainder(0) : 0 = 1 - 1
+#   push remainder to array : array = [0,0,0,1]
+# Break loop
+# array.join.reverse == '1000'
 
 puts convertToBase7 4
 # # Given an unsorted array of integers, find the length of longest increasing subsequence.
