@@ -1,6 +1,10 @@
 # Given an unsorted array of integers, find the length of longest increasing subsequence.
 
+
+
 def length_of_LIS array
+  puts array.min
+  puts array.max
   current_longest = 0
   counter = 1
   current_LIS_length = 0
