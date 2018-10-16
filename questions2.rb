@@ -7,9 +7,6 @@
 # Input: -7
 # Output: "-10"
 
-def convertToBase7  num
-
-end
   #0-6 is what each placement would be
   #10s to 7s
   #6 would be 6, 7 would be 10, 14 would be 20, 21 would be 30
@@ -32,6 +29,7 @@ end
   # 42 % 7 = 0
   # 42 / 7 = 6
   # if value < 7 done
+#PSEUDOCODE************
 # array = []
 # value = 343
 # (done 1 time for the single digit)
@@ -55,8 +53,24 @@ end
 #   push remainder to array : array = [0,0,0,1]
 # Break loop
 # array.join.reverse == '1000'
+def convertToBase7  num
+  remainders = []
+  # remainder = num % 7
+  # num = num - remainder
+  # remainders.push(remainder)
+  while num > 0 do
+    remainder = num % 7
+    num = num - remainder
+    num = num / 7
+    remainders.push(remainder)
+  end # while
+  "#{remainders}"
+end
 
-puts convertToBase7 4
+puts convertToBase7 343
+puts convertToBase7 342
+puts convertToBase7 98
+
 # # Given an unsorted array of integers, find the length of longest increasing subsequence.
 #
 #
