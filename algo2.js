@@ -8,12 +8,36 @@
 //011001
 // For example, the above binary watch reads "3:25".
 
+//given int n, returns all possible hours from num
+//num will be 4 or less
 
 var readBinaryWatch = function(num) {
+  // let bitCount = 0; //will store the count of 1 values for a certain time: ex: 01:00 will be bitCount of 1
+  let array = []; //empty array to hold possible solutions
 
+  //num.toString(2) will turn a number to binary
+  //split the binary string, and sum up the "on" units, or 1s, via a counter.
+  //if counter == num,
+  let hoursBinaryCount = 0;
+  let minutesBinaryCount = 0
+  for(let hours = 0; hours <= 11; hours++){
+    hours.toString(2).split("").map(n => hoursBinaryCount+=parseInt(n))
+    for(let minutes = 0; minutes <= 59; minutes++){
+      minutes.toString(2).split("").map(n => minutesBinaryCount+=parseInt(n))
+      if(hoursBinaryCount+minutesBinaryCount == num){
+        //push item to array
+        console.log(hours + ":" + minutes)
+      }
+      //reset minutesBinaryCount
+      minutesBinaryCount = 0
+    }//minutes
+    //reset hoursBinaryCount
+    hoursBinaryCount = 0
+  }//hours
+  return "test"
 };
 
-
+console.log(readBinaryWatch(1))
 // Given a non-negative integer n which represents the number of LEDs that are currently on,
 // return all possible times the watch could represent.
 
