@@ -64,7 +64,7 @@ def convertToBase7  num
     num = num / 7
     remainders.push(remainder)
   end # while
-  "#{remainders}"
+  "#{remainders.reverse.join}"
 end
 
 puts convertToBase7 343
