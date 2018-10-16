@@ -8,8 +8,28 @@
 # Output: "-10"
 
 def convertToBase7  num
-  puts num
-  "wow"
+  #0-6 is what each placement would be
+  #10s to 7s
+  #6 would be 6, 7 would be 10, 14 would be 20, 21 would be 30
+
+  # 7s to 10
+  #66 would be 6*7 + 6 = 42 + 6 = 48
+  #100 would be 7 x 7 = 49
+  #200 would be 2(7*7) = 49 *2 = 98
+  #666 would be 6(7*7) + 6*7 + 6 = 294 + 42 + 6 = 342
+  #1000 would be 1(7*7*7)  = 343
+  # 343 / 7 /7 /7  = 1
+  # bsic algo 
+  # 342 % 7 = 6
+  # 342 - 6 = 336
+  # 336 % 7 = 0 # might only need 1 modulus
+  # 336 / 7 = 48
+  # 48 % 7 = 6
+  # 48 - 6 = 42
+  # 42 % 7 = 0
+  # 42 / 7 = 6
+  # if value < 7 done
+
 end
 
 puts convertToBase7 4
