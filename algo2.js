@@ -11,6 +11,14 @@
 //given int n, returns all possible hours from num
 //num will be 4 or less
 
+let timeFormatter = (hours,minutes) => {
+  let time = ""
+  hours < 10 ? time =  time + "0" + hours : time += hours
+  time += ":"
+  minutes < 10 ? time = time + "0" + minutes : time += minutes
+  console.log(time)
+}
+
 var readBinaryWatch = function(num) {
   // let bitCount = 0; //will store the count of 1 values for a certain time: ex: 01:00 will be bitCount of 1
   let array = []; //empty array to hold possible solutions
@@ -26,7 +34,8 @@ var readBinaryWatch = function(num) {
       minutes.toString(2).split("").map(n => minutesBinaryCount+=parseInt(n))
       if(hoursBinaryCount+minutesBinaryCount == num){
         //push item to array
-        console.log(hours + ":" + minutes)
+        // console.log(hours + ":" + minutes)
+        timeFormatter(hours,minutes)
       }
       //reset minutesBinaryCount
       minutesBinaryCount = 0
