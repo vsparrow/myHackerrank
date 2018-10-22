@@ -11,6 +11,14 @@
 // Output: -1
 // Note:
 // You may assume that you have an infinite number of each kind of coin.
+let coinsAddUpToAmount = (coinInstance,amount)=>{
+	let sum = 0;
+	for(i = 0; i < coinInstance.length; i++){
+		sum+= coinInstance[i]
+	}
+	if(sum == amount){return true}
+	return false
+}
 
 var coinChange = function(coins, amount) {
 	let possibleCombos = []
@@ -28,7 +36,11 @@ var coinChange = function(coins, amount) {
 			while(howManyOfCurrentCoins > 0) { coinInstance.push(coins[current]); howManyOfCurrentCoins--;}
 			current--;
 		}//inner while
-		possibleCombos.push(coinInstance)
+		// check if coinInstance is equal to amount
+		if (coinsAddUpToAmount(coinInstance,amount)){
+			//if true then push, else dont
+			possibleCombos.push(coinInstance)
+		}
 		coins.pop()
 	}//while
 	// console.log(Math.floor(amount / coins[current])	)
@@ -36,7 +48,7 @@ var coinChange = function(coins, amount) {
 	for(i=0;i<possibleCombos.length;i++){
 		if(possibleCombos[i].length < possibleCombos[lowest].length){lowest = i}
 	}
-
+	console.log(possibleCombos)
 	return possibleCombos[lowest].length
 	// return [coins,current]
 };
