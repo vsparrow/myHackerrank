@@ -49,6 +49,7 @@ var coinChange = function(coins, amount) {
 		if(possibleCombos[i].length < possibleCombos[lowest].length){lowest = i}
 	}
 	console.log(possibleCombos)
+	if(possibleCombos.length < 1){return -1}
 	return possibleCombos[lowest].length
 	// return [coins,current]
 };
