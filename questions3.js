@@ -13,10 +13,22 @@
 // You may assume that you have an infinite number of each kind of coin.
 
 var coinChange = function(coins, amount) {
+	let possibleCombos = []
+	coins = coins.sort()
+	let current = coins.length -1
+	//since we want minimum ,  we should start with largest number
+	// and see how many of that number are in amount then move down
+	while(coins.length > 0)
+	{
 
+		coins.pop()	
+	}
+	console.log(Math.floor(amount / coins[current])	)
+
+	return [coins,current]
 };
 
-console.log(coinChange([1,2,5],11))
+console.log(coinChange([1,5,2],11))
 console.log(coinChange([2],3))
 
 //***********************************************************************************
