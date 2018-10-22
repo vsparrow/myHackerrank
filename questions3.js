@@ -30,9 +30,14 @@ var coinChange = function(coins, amount) {
 		}//inner while
 		possibleCombos.push(coinInstance)
 		coins.pop()
+	}//while
+	// console.log(Math.floor(amount / coins[current])	)
+	let lowest = possibleCombos.length-1
+	for(i=0;i<possibleCombos.length;i++){
+		if(possibleCombos[i].length < possibleCombos[lowest].length){lowest = i}
 	}
-	console.log(Math.floor(amount / coins[current])	)
-	return possibleCombos
+
+	return possibleCombos[lowest].length
 	// return [coins,current]
 };
 
