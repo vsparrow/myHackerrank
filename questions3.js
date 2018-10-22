@@ -18,14 +18,22 @@ var coinChange = function(coins, amount) {
 	let current = coins.length -1
 	//since we want minimum ,  we should start with largest number
 	// and see how many of that number are in amount then move down
-	while(coins.length > 0)
-	{
-
-		coins.pop()	
+	while(coins.length > 0){
+		current = coins.length -1
+		let coinInstance = []
+		let currentAmount = amount
+		while(current >= 0){
+			let howManyOfCurrentCoins = Math.floor(currentAmount / coins[current])
+			currentAmount = currentAmount - (coins[current] * howManyOfCurrentCoins)
+			while(howManyOfCurrentCoins > 0) { coinInstance.push(coins[current]); howManyOfCurrentCoins--;}
+			current--;
+		}//inner while
+		possibleCombos.push(coinInstance)
+		coins.pop()
 	}
 	console.log(Math.floor(amount / coins[current])	)
-
-	return [coins,current]
+	return possibleCombos
+	// return [coins,current]
 };
 
 console.log(coinChange([1,5,2],11))
