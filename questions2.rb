@@ -1,3 +1,21 @@
+#create linklist in ruby
+ll = {data: 1, next: {data:2, next: nil}}
+ll2 = {data: 1, next: {data:2, next: {data: 2, next: {data:1, next: nil}}}}
+# Given a singly linked list, determine if it is a palindrome.
+#
+# Example 1:
+#
+# Input: 1->2
+# Output: false
+# Example 2:
+#
+# Input: 1->2->2->1
+# Output: true
+
+
+
+
+
 # Given an integer, return its base 7 string representation.
 #
 # Example 1:
