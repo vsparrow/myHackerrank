@@ -28,9 +28,17 @@ def convert_ll_to_array(head)
 end
 
 def is_palindrome(head)
-  convert_ll_to_array(head)
-
+  arr = convert_ll_to_array(head)
+  start = 0
+  while arr.length >1 do
+    start = arr.shift
+    last = arr.pop
+    if start != last
+      return false
+    end #if
+  end #while
   # "wow"
+  true
 end
 puts "#{is_palindrome ll}"
 puts "#{is_palindrome ll2}"
