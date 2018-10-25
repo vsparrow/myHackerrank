@@ -1,6 +1,7 @@
 #create linklist in ruby
 ll = {data: 1, next: {data:2, next: nil}}
 ll2 = {data: 1, next: {data:2, next: {data: 2, next: {data:1, next: nil}}}}
+
 # Given a singly linked list, determine if it is a palindrome.
 #
 # Example 1:
@@ -12,7 +13,11 @@ ll2 = {data: 1, next: {data:2, next: {data: 2, next: {data:1, next: nil}}}}
 # Input: 1->2->2->1
 # Output: true
 
-
+def is_palindrome(head)
+  "wow"
+end
+puts is_palindrome ll
+puts is_palindrome ll2
 
 
 
@@ -71,30 +76,30 @@ ll2 = {data: 1, next: {data:2, next: {data: 2, next: {data:1, next: nil}}}}
 #   push remainder to array : array = [0,0,0,1]
 # Break loop
 # array.join.reverse == '1000'
-def convertToBase7  num
-  remainders = []
-  negative = false
-  if num < 0
-    num = num.abs
-    negative = true
-  end
-  # remainder = num % 7
-  # num = num - remainder
-  # remainders.push(remainder)
-  while num > 0 do
-    remainder = num % 7
-    num = num - remainder
-    num = num / 7
-    remainders.push(remainder)
-  end # while
-  negative ? "-#{remainders.reverse.join}": "#{remainders.reverse.join}"
-end
-
-puts convertToBase7 343
-puts convertToBase7 -343
-puts convertToBase7 342
-puts convertToBase7 98
-puts convertToBase7 -98
+# def convertToBase7  num
+#   remainders = []
+#   negative = false
+#   if num < 0
+#     num = num.abs
+#     negative = true
+#   end
+#   # remainder = num % 7
+#   # num = num - remainder
+#   # remainders.push(remainder)
+#   while num > 0 do
+#     remainder = num % 7
+#     num = num - remainder
+#     num = num / 7
+#     remainders.push(remainder)
+#   end # while
+#   negative ? "-#{remainders.reverse.join}": "#{remainders.reverse.join}"
+# end
+#
+# puts convertToBase7 343
+# puts convertToBase7 -343
+# puts convertToBase7 342
+# puts convertToBase7 98
+# puts convertToBase7 -98
 
 # # Given an unsorted array of integers, find the length of longest increasing subsequence.
 #
