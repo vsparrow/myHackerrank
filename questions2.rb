@@ -13,11 +13,27 @@ ll2 = {data: 1, next: {data:2, next: {data: 2, next: {data:1, next: nil}}}}
 # Input: 1->2->2->1
 # Output: true
 
-def is_palindrome(head)
-  "wow"
+def convert_ll_to_array(head)
+  arr = []
+  current = head
+  # puts current
+  while !current.nil? do
+    # puts "test"
+    # puts current[:data]
+    arr.push(current[:data])
+    current = current[:next]
+  end
+  # puts arr
+  arr
 end
-puts is_palindrome ll
-puts is_palindrome ll2
+
+def is_palindrome(head)
+  convert_ll_to_array(head)
+
+  # "wow"
+end
+puts "#{is_palindrome ll}"
+puts "#{is_palindrome ll2}"
 
 
 
