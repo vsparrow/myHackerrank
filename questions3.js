@@ -1,61 +1,80 @@
-// You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
-//
-// Example 1:
-//
-// Input: coins = [1, 2, 5], amount = 11
-// Output: 3
-// Explanation: 11 = 5 + 5 + 1
-// Example 2:
-//
-// Input: coins = [2], amount = 3
-// Output: -1
-// Note:
-// You may assume that you have an infinite number of each kind of coin.
-let coinsAddUpToAmount = (coinInstance,amount)=>{
-	let sum = 0;
-	for(i = 0; i < coinInstance.length; i++){
-		sum+= coinInstance[i]
-	}
-	if(sum == amount){return true}
-	return false
-}
+//letcode hard
+// You have 4 cards each containing a number from 1 to 9.
+// You need to judge whether they could operated through *, /, +, -, (, ) to get the value of 24.
+// The division operator / represents real division, not integer division. For example, 4 / (1 - 2/3) = 12.
+// Every operation done is between two numbers.
+// In particular, we cannot use - as a unary operator.
+// For example, with [1, 1, 1, 1] as input, the expression -1 - 1 - 1 - 1 is not allowed.
+// You cannot concatenate numbers together.
+// For example, if the input is [1, 2, 1, 2], we cannot write this as 12 + 12.
+var judgePoint24 = function(nums) {
 
-var coinChange = function(coins, amount) {
-	let possibleCombos = []
-	coins = coins.sort()
-	let current = coins.length -1
-	//since we want minimum ,  we should start with largest number
-	// and see how many of that number are in amount then move down
-	while(coins.length > 0){
-		current = coins.length -1
-		let coinInstance = []
-		let currentAmount = amount
-		while(current >= 0){
-			let howManyOfCurrentCoins = Math.floor(currentAmount / coins[current])
-			currentAmount = currentAmount - (coins[current] * howManyOfCurrentCoins)
-			while(howManyOfCurrentCoins > 0) { coinInstance.push(coins[current]); howManyOfCurrentCoins--;}
-			current--;
-		}//inner while
-		// check if coinInstance is equal to amount
-		if (coinsAddUpToAmount(coinInstance,amount)){
-			//if true then push, else dont
-			possibleCombos.push(coinInstance)
-		}
-		coins.pop()
-	}//while
-	// console.log(Math.floor(amount / coins[current])	)
-	let lowest = possibleCombos.length-1
-	for(i=0;i<possibleCombos.length;i++){
-		if(possibleCombos[i].length < possibleCombos[lowest].length){lowest = i}
-	}
-	console.log(possibleCombos)
-	if(possibleCombos.length < 1){return -1}
-	return possibleCombos[lowest].length
-	// return [coins,current]
 };
 
-console.log(coinChange([1,5,2],11))
-console.log(coinChange([2],3))
+console.log(judgePoint24([4, 1, 8, 7]));// Output: True
+// Explanation: (8-4) * (7-1) = 24
+console.log(judgePoint24([1, 2, 1, 2])); // Output: False
+
+
+//****************************************************************************************************
+// // You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+// //
+// // Example 1:
+// //
+// // Input: coins = [1, 2, 5], amount = 11
+// // Output: 3
+// // Explanation: 11 = 5 + 5 + 1
+// // Example 2:
+// //
+// // Input: coins = [2], amount = 3
+// // Output: -1
+// // Note:
+// // You may assume that you have an infinite number of each kind of coin.
+// let coinsAddUpToAmount = (coinInstance,amount)=>{
+// 	let sum = 0;
+// 	for(i = 0; i < coinInstance.length; i++){
+// 		sum+= coinInstance[i]
+// 	}
+// 	if(sum == amount){return true}
+// 	return false
+// }
+//
+// var coinChange = function(coins, amount) {
+// 	let possibleCombos = []
+// 	coins = coins.sort()
+// 	let current = coins.length -1
+// 	//since we want minimum ,  we should start with largest number
+// 	// and see how many of that number are in amount then move down
+// 	while(coins.length > 0){
+// 		current = coins.length -1
+// 		let coinInstance = []
+// 		let currentAmount = amount
+// 		while(current >= 0){
+// 			let howManyOfCurrentCoins = Math.floor(currentAmount / coins[current])
+// 			currentAmount = currentAmount - (coins[current] * howManyOfCurrentCoins)
+// 			while(howManyOfCurrentCoins > 0) { coinInstance.push(coins[current]); howManyOfCurrentCoins--;}
+// 			current--;
+// 		}//inner while
+// 		// check if coinInstance is equal to amount
+// 		if (coinsAddUpToAmount(coinInstance,amount)){
+// 			//if true then push, else dont
+// 			possibleCombos.push(coinInstance)
+// 		}
+// 		coins.pop()
+// 	}//while
+// 	// console.log(Math.floor(amount / coins[current])	)
+// 	let lowest = possibleCombos.length-1
+// 	for(i=0;i<possibleCombos.length;i++){
+// 		if(possibleCombos[i].length < possibleCombos[lowest].length){lowest = i}
+// 	}
+// 	console.log(possibleCombos)
+// 	if(possibleCombos.length < 1){return -1}
+// 	return possibleCombos[lowest].length
+// 	// return [coins,current]
+// };
+//
+// console.log(coinChange([1,5,2],11))
+// console.log(coinChange([2],3))
 
 //***********************************************************************************
 //
