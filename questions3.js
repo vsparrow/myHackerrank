@@ -7,9 +7,34 @@
 // For example, with [1, 1, 1, 1] as input, the expression -1 - 1 - 1 - 1 is not allowed.
 // You cannot concatenate numbers together.
 // For example, if the input is [1, 2, 1, 2], we cannot write this as 12 + 12.
-var judgePoint24 = function(nums) {
 
-};
+var judgePoint24 = function(nums) {
+	// let sum = 0;
+	let e1 = nums[0]
+	let e2 = nums[1]
+	let e3 = nums[2]
+	let e4 = nums[3]
+	// for(i=0;i<4;i++){
+  //
+	// }//i
+	function element4(sum){
+		if(sum + e4 == 24|| sum - e4 == 24 || sum * e4 == 24 || sum / e4 == 24){return true}
+		return false
+	}
+	function element3(sum){
+		if(element4(sum+e3) || element4(sum-e3) || element4(sum*e3) || element4(sum/e3)){return true}
+		return false
+	}
+	function element2(sum){
+		if(element3(sum+e2) || element3(sum-e2) || element3(sum*e2) || element3(sum/e2)){return true}
+		return false
+	}
+	function element1(){
+		if(element2(e1)){return true}
+		return false
+	}
+	return element1()
+};//judgePoint24
 
 console.log(judgePoint24([4, 1, 8, 7]));// Output: True
 // Explanation: (8-4) * (7-1) = 24
