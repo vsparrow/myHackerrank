@@ -6,14 +6,24 @@
 
 
 var minCostClimbingStairs = function(cost) {
-
+	let sum = 0;
+	let index = 0
+	let climb = 0
+	if(cost.length == 0 ){return 0}
+	if(cost.lenth == 1){return cost[0]}
+	if(cost[1] < cost[0]){index = 1}
+	if(cost[index+2]==undefined){return cost[index]}
+	if(cost[index+1]==undefined){return cost[index]} //may not need
+	if(cost[index+2] < cost[index+1]){climb = 1} //climb 2 instead of 1. makes sense when we splice.
+	//slice array
+	sum = cost[index]
+	cost.splice(index,1+climb)
+	return sum + minCostClimbingStairs(cost)
 };
 
-let cost = [10, 15, 20]
-console.log(minCostClimbingStairs(cost)); //Output: 15
+console.log(minCostClimbingStairs([10, 15, 20])); //Output: 15
 // Explanation: Cheapest is start on cost[1], pay that cost and go to the top.
-cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
-console.log(minCostClimbingStairs(cost));//Output: 6
+console.log(minCostClimbingStairs([1, 100, 1, 1, 1, 100, 1, 1, 100, 1]));//Output: 6
 // Explanation: Cheapest is start on cost[0], and only step on 1s, skipping cost[3].
 
 // cost will have a length in the range [2, 1000].
