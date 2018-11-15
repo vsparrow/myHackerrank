@@ -21,7 +21,7 @@ var minCostClimbingStairs = function(cost) {
 	if(cost.length == 3) { if(cost[0] + cost[2] > cost[1]){return cost[1]} return cost[0] + cost[2] }
 	if(cost[0]+cost[1]+cost[3] < cost[2]){ sum = cost[0]; cost.splice(0,1); return sum + minCostClimbingStairs(cost)}
 	if(cost[0]+cost[2] < cost[1]) {sum = cost[0]; cost.splice(0,2); return sum + minCostClimbingStairs(cost)}
-	
+	if(cost[2] == cost[1]){sum = cost[0]; cost.splice(0,2); return sum + minCostClimbingStairs(cost)}
 	//**************new algo end **********************
 	//slice array
 	sum = cost[index]
