@@ -11,10 +11,18 @@ var minCostClimbingStairs = function(cost) {
 	let climb = 0
 	if(cost.length == 0 ){return 0}
 	if(cost.lenth == 1){return cost[0]}
-	if(cost[1] < cost[0]){index = 1}
-	if(cost[index+2]==undefined){return cost[index]}
-	if(cost[index+1]==undefined){return cost[index]} //may not need
-	if(cost[index+2] < cost[index+1]){climb = 1} //climb 2 instead of 1. makes sense when we splice.
+	//*************old ago ***********************
+	// if(cost[1] < cost[0]){index = 1}
+	// if(cost[index+2]==undefined){return cost[index]}
+	// if(cost[index+1]==undefined){return cost[index]} //may not need
+	// if(cost[index+2] < cost[index+1]){climb = 1} //climb 2 instead of 1. makes sense when we splice.
+	//**************new algo **********************
+	if(cost.length == 2) { cost[0] > cost[1] ? index = 1: index = 0;  return cost[index]}
+	if(cost.length == 3) { if(cost[0] + cost[2] > cost[1]){return cost[1]} return cost[0] + cost[2] }
+	if(cost[0]+cost[1]+cost[3] < cost[2]){ sum = cost[0]; cost.splice(0,1); return sum + minCostClimbingStairs(cost)}
+	if(cost[0]+cost[2] < cost[1]) {sum = cost[0]; cost.splice(0,2); return sum + minCostClimbingStairs(cost)}
+	
+	//**************new algo end **********************
 	//slice array
 	sum = cost[index]
 	cost.splice(index,1+climb)
