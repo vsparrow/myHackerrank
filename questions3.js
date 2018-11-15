@@ -1,49 +1,72 @@
-//letcode hard
-// You have 4 cards each containing a number from 1 to 9.
-// You need to judge whether they could operated through *, /, +, -, (, ) to get the value of 24.
-// The division operator / represents real division, not integer division. For example, 4 / (1 - 2/3) = 12.
-// Every operation done is between two numbers.
-// In particular, we cannot use - as a unary operator.
-// For example, with [1, 1, 1, 1] as input, the expression -1 - 1 - 1 - 1 is not allowed.
-// You cannot concatenate numbers together.
-// For example, if the input is [1, 2, 1, 2], we cannot write this as 12 + 12.
+// On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
+//
+// Once you pay the cost, you can either climb one or two steps.
+// find minimum cost to reach the top of the floor,
+// you can either start from the step with index 0, or the step with index 1.
 
 
-//NOTE: the reason we pop and unshift the elements is that originally my algo was not working
-//because it didnt account for the parentisis
-//by moving element order, it emulates parentisis order
-var judgePoint24 = function(nums) {
-	for(i=0;i<nums.length; i++){
-		let temp = nums.pop()
-		nums.unshift(temp)
-		let e1 = nums[0]
-		let e2 = nums[1]
-		let e3 = nums[2]
-		let e4 = nums[3]
-		function element4(sum){
-			if(sum + e4 == 24|| sum - e4 == 24 || sum * e4 == 24 || sum / e4 == 24){return true}
-			return false
-		}
-		function element3(sum){
-			if(element4(sum+e3) || element4(sum-e3) || element4(sum*e3) || element4(sum/e3)){return true}
-			return false
-		}
-		function element2(sum){
-			if(element3(sum+e2) || element3(sum-e2) || element3(sum*e2) || element3(sum/e2)){return true}
-			return false
-		}
-		function element1(){
-			if(element2(e1)){return true}
-			return false
-		}
-		if(element1()){return true}
-	}
-	return false
-};//judgePoint24
+var minCostClimbingStairs = function(cost) {
 
-console.log(judgePoint24([4, 1, 8, 7]));// Output: True
-// Explanation: (8-4) * (7-1) = 24
-console.log(judgePoint24([1, 2, 1, 2])); // Output: False
+};
+
+let cost = [10, 15, 20]
+console.log(minCostClimbingStairs(cost)); //Output: 15
+// Explanation: Cheapest is start on cost[1], pay that cost and go to the top.
+cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+console.log(minCostClimbingStairs(cost));//Output: 6
+// Explanation: Cheapest is start on cost[0], and only step on 1s, skipping cost[3].
+
+// cost will have a length in the range [2, 1000].
+// Every cost[i] will be an integer in the range [0, 999].
+
+
+//*****************************************************************************************
+// //letcode hard
+// // You have 4 cards each containing a number from 1 to 9.
+// // You need to judge whether they could operated through *, /, +, -, (, ) to get the value of 24.
+// // The division operator / represents real division, not integer division. For example, 4 / (1 - 2/3) = 12.
+// // Every operation done is between two numbers.
+// // In particular, we cannot use - as a unary operator.
+// // For example, with [1, 1, 1, 1] as input, the expression -1 - 1 - 1 - 1 is not allowed.
+// // You cannot concatenate numbers together.
+// // For example, if the input is [1, 2, 1, 2], we cannot write this as 12 + 12.
+//
+//
+// //NOTE: the reason we pop and unshift the elements is that originally my algo was not working
+// //because it didnt account for the parentisis
+// //by moving element order, it emulates parentisis order
+// var judgePoint24 = function(nums) {
+// 	for(i=0;i<nums.length; i++){
+// 		let temp = nums.pop()
+// 		nums.unshift(temp)
+// 		let e1 = nums[0]
+// 		let e2 = nums[1]
+// 		let e3 = nums[2]
+// 		let e4 = nums[3]
+// 		function element4(sum){
+// 			if(sum + e4 == 24|| sum - e4 == 24 || sum * e4 == 24 || sum / e4 == 24){return true}
+// 			return false
+// 		}
+// 		function element3(sum){
+// 			if(element4(sum+e3) || element4(sum-e3) || element4(sum*e3) || element4(sum/e3)){return true}
+// 			return false
+// 		}
+// 		function element2(sum){
+// 			if(element3(sum+e2) || element3(sum-e2) || element3(sum*e2) || element3(sum/e2)){return true}
+// 			return false
+// 		}
+// 		function element1(){
+// 			if(element2(e1)){return true}
+// 			return false
+// 		}
+// 		if(element1()){return true}
+// 	}
+// 	return false
+// };//judgePoint24
+//
+// console.log(judgePoint24([4, 1, 8, 7]));// Output: True
+// // Explanation: (8-4) * (7-1) = 24
+// console.log(judgePoint24([1, 2, 1, 2])); // Output: False
 
 
 //****************************************************************************************************
