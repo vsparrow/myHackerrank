@@ -12,15 +12,37 @@ var breakIntoGroupsOfW = function(hand,W){
 }
 
 var isNStraightHand = function(hand, W) {
-  if(!breakIntoGroupsOfW(hand,W)){return false}   
-
-  return "test"  //default
+  if(!breakIntoGroupsOfW(hand,W)){return false}
+  let sortedHand = hand.sort()
+  let startGroup = 0
+  let endGroup = W-1
+  let iterations = sortedHand.length / W
+  // console.log(`${startGroup} ${endGroup}`);
+  for (let i = 0; i < iterations; i++) {
+    let subset = []
+    let currentCard = sortedHand.shift()
+    subset.push(currentCard)
+    for(let j = 2; j <= W; j++ ){ //find next cards in subset
+      let nextCardIndex = sortedHand.indexOf(currentCard + 1)
+      console.log(`nextCardIndex is ${nextCardIndex}`);
+      if(nextCardIndex == -1) {return false}  //break in continous cards
+    }
+    //check if continous
+  }
+  return sortedHand
+  // return "test"  //default
 };
 
 
 console.log(isNStraightHand([1,2,3,6,2,3,4,7,8],3));;
 // Output: true
 // Explanation: Alice's hand can be rearranged as [1,2,3],[2,3,4],[6,7,8].
+console.log(isNStraightHand([1,2,3,6,2,3,4,7,9],3));;
+// Output: false
+// Explanation: Break in subset, last hand is [6,7,9].
+console.log(isNStraightHand([0,2,3,6,2,3,4,7,9],3));;
+// Output: false
+// Explanation: Break in subset, first hand is [0,2,3]
 
 console.log(isNStraightHand([1,2,3,4,5],  4));
 // Output: false
