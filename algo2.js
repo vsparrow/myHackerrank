@@ -12,29 +12,19 @@ var breakIntoGroupsOfW = function(hand,W){
 }
 
 var isNStraightHand = function(hand, W) {
-  if(!breakIntoGroupsOfW(hand,W)){return false}
+  if(!breakIntoGroupsOfW(hand,W)){return false} //cannot break into groups of W
   let sortedHand = hand.sort()
-  let startGroup = 0
-  let endGroup = W-1
   let iterations = sortedHand.length / W
-  // console.log(`${startGroup} ${endGroup}`);
-  for (let i = 0; i < iterations; i++) {
-    let subset = []
+  for (let i = 0; i < iterations; i++) {      //check each group of cards
     let currentCard = sortedHand.shift()
-    subset.push(currentCard)
-    for(let j = 2; j <= W; j++ ){ //find next cards in subset
+    for(let j = 2; j <= W; j++ ){             //find next cards in subset
       let nextCardIndex = sortedHand.indexOf(currentCard + 1)
-      // console.log(`nextCardIndex is ${nextCardIndex}`);
       if(nextCardIndex == -1) {return false}  //break in continous cards
-      //if found set value currentCard to new card, then splice out the card, and push to subset
-      currentCard = sortedHand[nextCardIndex]
-      sortedHand.splice(nextCardIndex,1)
-      subset.push(currentCard)
+      currentCard = sortedHand[nextCardIndex] //if next card found set value currentCard to new card
+      sortedHand.splice(nextCardIndex,1)      //remove the card from hand
     }
-    //check if continous
   }
   return true
-  // return "test"  //default
 };
 
 
