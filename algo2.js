@@ -1,58 +1,89 @@
-//binary watch
+//**************************************************************************************
+//**************************************************************************************
+//**************************************************************************************
+//**************************************************************************************
+// Alice has a hand of cards, given as an array of integers.
+// rearrange the cards into groups so that each group is size W,
+//   and consists of W consecutive cards.
+// Return true if and only if she can.
 
-// A binary watch has 4 LEDs on the top which represent the hours (0-11),
-// and the 6 LEDs on the bottom represent the minutes (0-59).
-// Each LED represents a zero or one, with the least significant bit on the right.
+var isNStraightHand = function(hand, W) {
 
-//0011
-//011001
-// For example, the above binary watch reads "3:25".
-
-//given int n, returns all possible hours from num
-//num will be 4 or less
-
-
-// let timeFormatter = (hours,minutes) => {
-//   // let time = ""
-//   // time += hours
-//   // time += ":"
-//   // minutes < 10 ? time = time + "0" + minutes : time += minutes
-//   // return time
-// }
-let timeFormatter = (hours,minutes) => (`${hours}:` + (minutes < 10 ? "0" + minutes : minutes)) //same as above
-
-var readBinaryWatch = function(num) {
-  let array = []; //empty array to hold possible solutions
-  //num.toString(2) will turn a number to binary
-  //split the binary string, and sum up the "on" units, or 1s, via a counter.
-  let hoursBinaryCount = 0;
-  let minutesBinaryCount = 0
-  for(let hours = 0; hours <= 11; hours++){
-    hours.toString(2).split("").map(n => hoursBinaryCount+=parseInt(n))
-    for(let minutes = 0; minutes <= 59; minutes++){
-      minutes.toString(2).split("").map(n => minutesBinaryCount+=parseInt(n))
-      if(hoursBinaryCount+minutesBinaryCount == num){
-        array.push(timeFormatter(hours,minutes))
-      }
-      minutesBinaryCount = 0 //reset for next minute
-    }//minutes
-    hoursBinaryCount = 0 //reset for next hour
-  }//hours
-  return array
 };
 
-console.log(readBinaryWatch(1))
-// Given a non-negative integer n which represents the number of LEDs that are currently on,
-// return all possible times the watch could represent.
 
-// Example:
-// Input: n = 1
-// Return: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]
+console.log(isNStraightHand([1,2,3,6,2,3,4,7,8],3));;
+// Output: true
+// Explanation: Alice's hand can be rearranged as [1,2,3],[2,3,4],[6,7,8].
+
+console.log(isNStraightHand([1,2,3,4,5],  4));
+// Output: false
+// Explanation: Alice's hand can't be rearranged into groups of 4.
+
+
 // Note:
-// The order of output does not matter.
-// The hour must not contain a leading zero, for example "01:00" is not valid, it should be "1:00".
-// The minute must be consist of two digits and may contain a leading zero, for example "10:2" is not valid,
-// it should be "10:02".
+// 1 <= hand.length <= 10000
+// 0 <= hand[i] <= 10^9
+// 1 <= W <= hand.length
+
+
+//**************************************************************************************
+
+// //binary watch
+//
+// // A binary watch has 4 LEDs on the top which represent the hours (0-11),
+// // and the 6 LEDs on the bottom represent the minutes (0-59).
+// // Each LED represents a zero or one, with the least significant bit on the right.
+//
+// //0011
+// //011001
+// // For example, the above binary watch reads "3:25".
+//
+// //given int n, returns all possible hours from num
+// //num will be 4 or less
+//
+//
+// // let timeFormatter = (hours,minutes) => {
+// //   // let time = ""
+// //   // time += hours
+// //   // time += ":"
+// //   // minutes < 10 ? time = time + "0" + minutes : time += minutes
+// //   // return time
+// // }
+// let timeFormatter = (hours,minutes) => (`${hours}:` + (minutes < 10 ? "0" + minutes : minutes)) //same as above
+//
+// var readBinaryWatch = function(num) {
+//   let array = []; //empty array to hold possible solutions
+//   //num.toString(2) will turn a number to binary
+//   //split the binary string, and sum up the "on" units, or 1s, via a counter.
+//   let hoursBinaryCount = 0;
+//   let minutesBinaryCount = 0
+//   for(let hours = 0; hours <= 11; hours++){
+//     hours.toString(2).split("").map(n => hoursBinaryCount+=parseInt(n))
+//     for(let minutes = 0; minutes <= 59; minutes++){
+//       minutes.toString(2).split("").map(n => minutesBinaryCount+=parseInt(n))
+//       if(hoursBinaryCount+minutesBinaryCount == num){
+//         array.push(timeFormatter(hours,minutes))
+//       }
+//       minutesBinaryCount = 0 //reset for next minute
+//     }//minutes
+//     hoursBinaryCount = 0 //reset for next hour
+//   }//hours
+//   return array
+// };
+//
+// console.log(readBinaryWatch(1))
+// // Given a non-negative integer n which represents the number of LEDs that are currently on,
+// // return all possible times the watch could represent.
+//
+// // Example:
+// // Input: n = 1
+// // Return: ["1:00", "2:00", "4:00", "8:00", "0:01", "0:02", "0:04", "0:08", "0:16", "0:32"]
+// // Note:
+// // The order of output does not matter.
+// // The hour must not contain a leading zero, for example "01:00" is not valid, it should be "1:00".
+// // The minute must be consist of two digits and may contain a leading zero, for example "10:2" is not valid,
+// // it should be "10:02".
 
 //**************************************************************************************
 
