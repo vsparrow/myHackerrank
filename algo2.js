@@ -33,7 +33,7 @@ var isNStraightHand = function(hand, W) {
     }
     //check if continous
   }
-  return sortedHand
+  return true
   // return "test"  //default
 };
 
