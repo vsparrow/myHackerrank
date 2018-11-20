@@ -24,8 +24,12 @@ var isNStraightHand = function(hand, W) {
     subset.push(currentCard)
     for(let j = 2; j <= W; j++ ){ //find next cards in subset
       let nextCardIndex = sortedHand.indexOf(currentCard + 1)
-      console.log(`nextCardIndex is ${nextCardIndex}`);
+      // console.log(`nextCardIndex is ${nextCardIndex}`);
       if(nextCardIndex == -1) {return false}  //break in continous cards
+      //if found set value currentCard to new card, then splice out the card, and push to subset
+      currentCard = sortedHand[nextCardIndex]
+      sortedHand.splice(nextCardIndex,1)
+      subset.push(currentCard)
     }
     //check if continous
   }
