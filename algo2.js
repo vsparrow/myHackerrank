@@ -6,9 +6,15 @@
 // rearrange the cards into groups so that each group is size W,
 //   and consists of W consecutive cards.
 // Return true if and only if she can.
+var breakIntoGroupsOfW = function(hand,W){
+
+  return hand.length % W == 0
+}
 
 var isNStraightHand = function(hand, W) {
+  if(!breakIntoGroupsOfW(hand,W)){return false}   
 
+  return "test"  //default
 };
 
 
