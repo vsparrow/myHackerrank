@@ -8,7 +8,14 @@
 // Now for each shifts[i] = x, we want to shift the first i+1 letters of S, x times.
 // Return the final string after all such shifts to S are applied.
 var shiftingLetters = function(S, shifts) {
-
+  let s = []
+  for(i=0;i<S.length;i++){
+    let c = S.charCodeAt(i)
+    let offset = shifts[i] % 26
+    c += offset
+    s.push(String.fromCharCode(c))
+  }
+  s
 };
 
 console.log(shiftingLetters("abc",[3,5,9]));
