@@ -8,13 +8,24 @@
 // Now for each shifts[i] = x, we want to shift the first i+1 letters of S, x times.
 // Return the final string after all such shifts to S are applied.
 var shiftingLetters = function(S, shifts) {
-  let s = []
-  for(i=0;i<S.length;i++){
-    let c = S.charCodeAt(i)
+  let s = S.split("")
+  console.log(s);
+  for(i=0;i<shifts.length;i++){
     let offset = shifts[i] % 26
-    c += offset
-    if(c > 122){ c = c - 26}        //wrap around the alphabet
-    s.push(String.fromCharCode(c))
+    //now cycle through characters 0 to i
+    for(j=0;j<=i;j++){
+      let c = s[j]
+      c = c.charCodeAt(0)
+      console.log(c);
+      c += offset
+      if(c > 122){ c = c - 26}
+      s[j] = String.fromCharCode(c)
+    }
+    /////////////
+    // let c = S.charCodeAt(i)
+    // c += offset
+    // if(c > 122){ c = c - 26}        //wrap around the alphabet
+    // s.push(String.fromCharCode(c))
   }
   return s
 };
@@ -31,7 +42,7 @@ console.log(shiftingLetters("abc",[3,5,9]));
 // Note:
 // 1 <= S.length = shifts.length <= 20000
 // 0 <= shifts[i] <= 10 ^ 9
-console.log(shiftingLetters("abcz",[3,5,9,2]));
+console.log(shiftingLetters("abcza",[3,5,9,2,26]));
 //**************************************************************************************
 // Alice has a hand of cards, given as an array of integers.
 // rearrange the cards into groups so that each group is size W,
