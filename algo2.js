@@ -13,9 +13,10 @@ var shiftingLetters = function(S, shifts) {
     let c = S.charCodeAt(i)
     let offset = shifts[i] % 26
     c += offset
+    if(c > 122){ c = c - 26}        //wrap around the alphabet
     s.push(String.fromCharCode(c))
   }
-  s
+  return s
 };
 
 console.log(shiftingLetters("abc",[3,5,9]));
@@ -30,7 +31,7 @@ console.log(shiftingLetters("abc",[3,5,9]));
 // Note:
 // 1 <= S.length = shifts.length <= 20000
 // 0 <= shifts[i] <= 10 ^ 9
-
+console.log(shiftingLetters("abcz",[3,5,9,2]));
 //**************************************************************************************
 // Alice has a hand of cards, given as an array of integers.
 // rearrange the cards into groups so that each group is size W,
