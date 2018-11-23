@@ -24,13 +24,16 @@ let isVowel = (c) => {
 var toGoatLatin = function(S) {
   let s = S.split(" ")
   for (i = 0; i < s.length; i++) {
-    for(j=0; j<s[i].length; j++)
-      console.log(isVowel(s[i][j]));
+    // for(j=0; j<s[i].length; j++)
+    //   console.log(isVowel(s[i][j]));
+    if(isVowel(s[i][0])){ s[i]+= ('a'.repeat(i+1))}
+    // else {}
   }
+  return s
 };
 
 
-console.log(toGoatLatin("I speak Goat Latin"));
+console.log(toGoatLatin("I speak Goat Latin OK"));
 // Output: "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"
 
 console.log(toGoatLatin("The quick brown fox jumped over the lazy dog"));
