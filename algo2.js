@@ -17,9 +17,16 @@
 // Add one letter 'a' to the end of each word per its word index in the sentence, starting with 1.
 // For example, the first word gets "a" added to the end, the second word gets "aa" added to the end and so on.
 // Return the final sentence representing the conversion from S to Goat Latin.
+let isVowel = (c) => {
+  return /[aeiouAEIOU]/.test(c)
+}
 
 var toGoatLatin = function(S) {
-
+  let s = S.split(" ")
+  for (i = 0; i < s.length; i++) {
+    for(j=0; j<s[i].length; j++)
+      console.log(isVowel(s[i][j]));
+  }
 };
 
 
