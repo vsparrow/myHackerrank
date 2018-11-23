@@ -26,19 +26,20 @@ var toGoatLatin = function(S) {
   for (i = 0; i < s.length; i++) {
     // for(j=0; j<s[i].length; j++)
     //   console.log(isVowel(s[i][j]));
-    if(isVowel(s[i][0])){ s[i]+= ('a'.repeat(i+1))}
-    // else {}
+    if(isVowel(s[i][0])){ s[i] = s[i] + 'm' + ('a'.repeat(i+2))}
+    else {s[i] = s[i].substring(1) + s[i][0] + 'm' + ('a'.repeat(i+2))}
   }
-  return s
+  return s.join(" ")
 };
 
 
-console.log(toGoatLatin("I speak Goat Latin OK"));
+console.log(toGoatLatin("I speak Goat Latin"));
 // Output: "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"
 
 console.log(toGoatLatin("The quick brown fox jumped over the lazy dog"));
 // Output: "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"
 
+toGoatLatin("The quick brown fox jumped over the lazy dog") ==  "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"
 
 // Notes:
 // S contains only uppercase, lowercase and spaces. Exactly one space between each word.
