@@ -4,8 +4,14 @@
 # Return true if and only if we can do this in a way such that the resulting number is a power of 2.
 
 #find all possible reordered variations and return an array of them
+
+def remove_if_first_is_zero arr
+    arr.select {|n| n[0] != '0'}
+end
+
 def possible_orders(n)
   digits = n.to_s.split("").permutation.map(&:join)
+  remove_if_first_is_zero(digits)
 end
 
 def reordered_power_of2(n)
