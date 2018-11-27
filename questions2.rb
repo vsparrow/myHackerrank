@@ -5,6 +5,7 @@
 
 #find all possible reordered variations and return an array of them
 
+#***********************find all possible permutations
 def remove_if_first_is_zero arr
     arr.select {|n| n[0] != '0'}
 end
@@ -13,11 +14,21 @@ def possible_orders(n)
   digits = n.to_s.split("").permutation.map(&:join)   #convert to string, get permutations of digits
   remove_if_first_is_zero(digits).map {|n| n.to_i}    #convert back to int from string
 end
+#***********************check to see if power of 2
+def power_of_2? n
+  return true if n == 1
+  result = 1
+  while result <= n do
+    result = result * 2
+    return true if result == n
+  end
+  false
+end
 
 def reordered_power_of2(n)
   possible = possible_orders(n)
   puts "#{possible}"
-  # "test"
+  puts power_of_2?(possible[0])
 end
 
 puts reordered_power_of2 1     # Output: true
