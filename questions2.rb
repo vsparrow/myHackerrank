@@ -16,7 +16,7 @@ def possible_orders(n)
 end
 #***********************check to see if power of 2
 def power_of_2? n
-  return true if n == 1
+  return true if n == 1           #default
   result = 1
   while result <= n do
     result = result * 2
@@ -27,8 +27,7 @@ end
 
 def reordered_power_of2(n)
   possible = possible_orders(n)
-  puts "#{possible}"
-  puts power_of_2?(possible[0])
+  possible.any? {|n| power_of_2?(n) == true}
 end
 
 puts reordered_power_of2 1     # Output: true
