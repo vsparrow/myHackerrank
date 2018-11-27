@@ -10,8 +10,8 @@ def remove_if_first_is_zero arr
 end
 
 def possible_orders(n)
-  digits = n.to_s.split("").permutation.map(&:join)
-  remove_if_first_is_zero(digits)
+  digits = n.to_s.split("").permutation.map(&:join)   #convert to string, get permutations of digits
+  remove_if_first_is_zero(digits).map {|n| n.to_i}    #convert back to int from string
 end
 
 def reordered_power_of2(n)
