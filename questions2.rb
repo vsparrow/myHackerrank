@@ -1,50 +1,76 @@
-#create linklist in ruby
-ll = {data: 1, next: {data:2, next: nil}}
-ll2 = {data: 1, next: {data:2, next: {data: 2, next: {data:1, next: nil}}}}
+# Reordered Power of 2
+# Starting with a positive integer N,
+# reorder the digits in any order (including the original order) such that the leading digit is not zero.
+# Return true if and only if we can do this in a way such that the resulting number is a power of 2.
 
-# Given a singly linked list, determine if it is a palindrome.
-#
-# Example 1:
-#
-# Input: 1->2
-# Output: false
-# Example 2:
-#
-# Input: 1->2->2->1
+
+def reordered_power_of2(n)
+  "test"
+end
+
+puts reordered_power_of2 1
 # Output: true
 
-def convert_ll_to_array(head)
-  arr = []
-  current = head
-  # puts current
-  while !current.nil? do
-    # puts "test"
-    # puts current[:data]
-    arr.push(current[:data])
-    current = current[:next]
-  end
-  # puts arr
-  arr
-end
+puts reordered_power_of2 10
+# Output: false
 
-def is_palindrome(head)
-  arr = convert_ll_to_array(head)
-  start = 0
-  while arr.length >1 do
-    start = arr.shift
-    last = arr.pop
-    if start != last
-      return false
-    end #if
-  end #while
-  # "wow"
-  true
-end
-puts "#{is_palindrome ll}"
-puts "#{is_palindrome ll2}"
+puts reordered_power_of2 16
+# Output: true
 
+puts reordered_power_of2 24
+# Output: false
 
+puts reordered_power_of2 46
+# Output: true
+#*********************************************************************************************
 
+# #create linklist in ruby
+# ll = {data: 1, next: {data:2, next: nil}}
+# ll2 = {data: 1, next: {data:2, next: {data: 2, next: {data:1, next: nil}}}}
+#
+# # Given a singly linked list, determine if it is a palindrome.
+# #
+# # Example 1:
+# #
+# # Input: 1->2
+# # Output: false
+# # Example 2:
+# #
+# # Input: 1->2->2->1
+# # Output: true
+#
+# def convert_ll_to_array(head)
+#   arr = []
+#   current = head
+#   # puts current
+#   while !current.nil? do
+#     # puts "test"
+#     # puts current[:data]
+#     arr.push(current[:data])
+#     current = current[:next]
+#   end
+#   # puts arr
+#   arr
+# end
+#
+# def is_palindrome(head)
+#   arr = convert_ll_to_array(head)
+#   start = 0
+#   while arr.length >1 do
+#     start = arr.shift
+#     last = arr.pop
+#     if start != last
+#       return false
+#     end #if
+#   end #while
+#   # "wow"
+#   true
+# end
+# puts "#{is_palindrome ll}"
+# puts "#{is_palindrome ll2}"
+#
+#
+#
 # Given an integer, return its base 7 string representation.
 #
 # Example 1:
