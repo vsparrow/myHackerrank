@@ -3,25 +3,23 @@
 # reorder the digits in any order (including the original order) such that the leading digit is not zero.
 # Return true if and only if we can do this in a way such that the resulting number is a power of 2.
 
-
-def reordered_power_of2(n)
-  "test"
+#find all possible reordered variations and return an array of them
+def possible_orders(n)
+  digits = n.to_s.split("").permutation.map(&:join)
 end
 
-puts reordered_power_of2 1
-# Output: true
+def reordered_power_of2(n)
+  possible = possible_orders(n)
+  puts "#{possible}"
+  # "test"
+end
 
-puts reordered_power_of2 10
-# Output: false
-
-puts reordered_power_of2 16
-# Output: true
-
-puts reordered_power_of2 24
-# Output: false
-
-puts reordered_power_of2 46
-# Output: true
+puts reordered_power_of2 1     # Output: true
+puts reordered_power_of2 10     # Output: false
+puts reordered_power_of2 16     # Output: true
+puts reordered_power_of2 24     # Output: false
+puts reordered_power_of2 46     # Output: true
+puts reordered_power_of2 281     #output true
 #*********************************************************************************************
 
 # #create linklist in ruby
