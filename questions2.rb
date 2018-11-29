@@ -10,11 +10,24 @@ end
 
 #***********************************************CREATE LL FROM ARRAY
 def create_ll_from_array arr
-
+  head = Node.new()
+  head.value = arr.shift()
+  # puts head.value
+  current = head
+  while arr.length > 0 do
+    node = Node.new()
+    node.value = arr.shift()
+    current.next = node
+    current = node
+  end
+  # puts head.next.next.value
+  head
 end
 #***********************************************MAIN
 def middle_node(head) #input from leet code coming in as array so this is an array
-  middle = (head.length / 2).ceil         #middle element
+  middle = (head.length / 2).ceil                 #middle element
+  keep = head.slice(middle,head.length-middle)   #get portion of the array that will be part of ll
+  create_ll_from_array(keep)
 end
 #***********************************************TESTS
 input = [1,2,3,4,5]       #input from leet code coming in as array
