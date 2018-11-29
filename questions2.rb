@@ -2,11 +2,22 @@
 # Given a non-empty, singly linked list with head node head, return a middle node of linked list.
 # If there are two middle nodes, return the second middle node.
 
-def middle_node(head)
-
+#***********************************************node class
+class Node
+  attr_accessor :value
+  attr_accessor :next
 end
 
-input = [1,2,3,4,5]
+#***********************************************CREATE LL FROM ARRAY
+def create_ll_from_array arr
+
+end
+#***********************************************MAIN
+def middle_node(head) #input from leet code coming in as array so this is an array
+
+end
+#***********************************************TESTS
+input = [1,2,3,4,5]       #input from leet code coming in as array
 puts middle_node(input)
 # Output: Node 3 from this list (Serialization: [3,4,5])
 # The returned node has value 3.  (The judge's serialization of this node is [3,4,5]).
