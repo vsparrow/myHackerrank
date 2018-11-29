@@ -14,7 +14,7 @@ def create_ll_from_array arr
 end
 #***********************************************MAIN
 def middle_node(head) #input from leet code coming in as array so this is an array
-
+  middle = (head.length / 2).ceil         #middle element
 end
 #***********************************************TESTS
 input = [1,2,3,4,5]       #input from leet code coming in as array
