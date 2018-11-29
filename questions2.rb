@@ -1,42 +1,67 @@
-# Reordered Power of 2
-# Starting with a positive integer N,
-# reorder the digits in any order (including the original order) such that the leading digit is not zero.
-# Return true if and only if we can do this in a way such that the resulting number is a power of 2.
+# Middle of the Linked List
+# Given a non-empty, singly linked list with head node head, return a middle node of linked list.
+# If there are two middle nodes, return the second middle node.
 
-#find all possible reordered variations and return an array of them
+def middle_node(head)
 
-#***********************find all possible permutations
-def remove_if_first_is_zero arr
-    arr.select {|n| n[0] != '0'}
 end
 
-def possible_orders(n)
-  digits = n.to_s.split("").permutation.map(&:join)   #convert to string, get permutations of digits
-  remove_if_first_is_zero(digits).map {|n| n.to_i}    #convert back to int from string
-end
-#***********************check to see if power of 2
-def power_of_2? n
-  return true if n == 1           #default
-  result = 1
-  while result <= n do
-    result = result * 2
-    return true if result == n
-  end
-  false
-end
+input = [1,2,3,4,5]
+puts middle_node(input)
+# Output: Node 3 from this list (Serialization: [3,4,5])
+# The returned node has value 3.  (The judge's serialization of this node is [3,4,5]).
+# Note that we returned a ListNode object ans, such that:
+# ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.
 
-def reordered_power_of2(n)
-  possible = possible_orders(n)
-  possible.any? {|n| power_of_2?(n) == true}
-end
+input =  [1,2,3,4,5,6]
+puts middle_node(input)
 
-puts reordered_power_of2 1     # Output: true
-puts reordered_power_of2 10     # Output: false
-puts reordered_power_of2 16     # Output: true
-puts reordered_power_of2 24     # Output: false
-puts reordered_power_of2 46     # Output: true
-puts reordered_power_of2 281     #output true
-#*********************************************************************************************
+# Output: Node 4 from this list (Serialization: [4,5,6])
+# Since the list has two middle nodes with values 3 and 4, we return the second one.
+
+
+# The number of nodes in the given list will be between 1 and 100.
+
+
+# # Reordered Power of 2
+# # Starting with a positive integer N,
+# # reorder the digits in any order (including the original order) such that the leading digit is not zero.
+# # Return true if and only if we can do this in a way such that the resulting number is a power of 2.
+#
+# #find all possible reordered variations and return an array of them
+#
+# #***********************find all possible permutations
+# def remove_if_first_is_zero arr
+#     arr.select {|n| n[0] != '0'}
+# end
+#
+# def possible_orders(n)
+#   digits = n.to_s.split("").permutation.map(&:join)   #convert to string, get permutations of digits
+#   remove_if_first_is_zero(digits).map {|n| n.to_i}    #convert back to int from string
+# end
+# #***********************check to see if power of 2
+# def power_of_2? n
+#   return true if n == 1           #default
+#   result = 1
+#   while result <= n do
+#     result = result * 2
+#     return true if result == n
+#   end
+#   false
+# end
+#
+# def reordered_power_of2(n)
+#   possible = possible_orders(n)
+#   possible.any? {|n| power_of_2?(n) == true}
+# end
+#
+# puts reordered_power_of2 1     # Output: true
+# puts reordered_power_of2 10     # Output: false
+# puts reordered_power_of2 16     # Output: true
+# puts reordered_power_of2 24     # Output: false
+# puts reordered_power_of2 46     # Output: true
+# puts reordered_power_of2 281     #output true
+# #*********************************************************************************************
 
 # #create linklist in ruby
 # ll = {data: 1, next: {data:2, next: nil}}
